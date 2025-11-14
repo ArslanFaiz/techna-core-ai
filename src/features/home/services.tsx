@@ -7,7 +7,7 @@ import { services } from "../../constants";
 const cardDirections = ["bottom", "left", "right", "top", "bottom"];
 
   const ServicesSection = () => {
-    const [animate, setAnimate] = useState(false);
+    const [_animate, setAnimate] = useState(false);
 
   useEffect(() => {
     setAnimate(true);
