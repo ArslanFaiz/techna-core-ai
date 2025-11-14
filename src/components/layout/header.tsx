@@ -99,7 +99,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-black/90 backdrop-blur-md px-6 py-4 flex flex-col gap-4 font-medium animate-fade-in">
+<div className="mobile-menu md:hidden bg-black/90 backdrop-blur-md px-6 py-4 flex flex-col gap-4 font-medium animate-fade-in">
 
           <Link
             to="/"
