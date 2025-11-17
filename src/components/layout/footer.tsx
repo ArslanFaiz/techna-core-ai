@@ -51,7 +51,7 @@ export default function Footer() {
 
         <li
           className="hover:text-white transition-all hover:translate-x-1 hover:opacity-100 opacity-80 cursor-pointer"
-          onClick={() => handleScroll("project")}
+          onClick={() => handleScroll("hero")}
         >
           Documents
         </li>

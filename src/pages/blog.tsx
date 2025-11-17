@@ -55,7 +55,7 @@ const blogs = [
 
 const Blog = () => {
   return (
-    <div className="w-full">
+    <div className="w-full" id="hero">
       {/* Hero Section */}
       <div className="w-full relative flex items-center justify-center h-[calc(100vh-80px)] sm:h-[600px]">
         {/* Background Image */}

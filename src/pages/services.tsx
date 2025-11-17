@@ -70,6 +70,7 @@ const handleNavigate = ()=>{
     <>
       {/* Hero Section */}
       <section
+        id="hero"
         className="w-full min-h-screen flex flex-col items-center justify-center bg-cover bg-center px-4 sm:px-6 md:px-12 py-20 text-center"
         style={{ backgroundImage: "url('/assets/services-section.svg')" }}
       >

@@ -75,7 +75,7 @@ const Header = () => {
         {/* Contact Button */}
         <Button className="hidden md:block">
           <Link
-            to="/contact"
+            to="/form"
             className="
               bg-[#0065CA] text-white font-semibold
               px-6 py-3 min-w-[120px] text-center rounded-full
@@ -134,7 +134,7 @@ const Header = () => {
           </Link>
 
           <Link
-            to="/contact"
+            to="/form"
             className="bg-[#0065CA] text-white text-center px-5 py-2 rounded-full
                        hover:bg-[#0050a0] hover:scale-105 transition-all duration-300"
             onClick={() => setIsMobileMenuOpen(false)}
