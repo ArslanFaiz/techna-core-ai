@@ -1,109 +1,85 @@
-// ServicesSection.jsx
-import { useEffect, useState } from "react";
-import { FaCheckCircle } from "react-icons/fa";
+// ServicesSection.tsx
 import { motion } from "framer-motion";
+import { FaCheckCircle } from "react-icons/fa";
 import { services } from "../../constants";
 
-const cardDirections = ["bottom", "left", "right", "top", "bottom"];
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
-  const ServicesSection = () => {
-    const [_animate, setAnimate] = useState(false);
-
-  useEffect(() => {
-    setAnimate(true);
-  }, []);
-
-  const getCardInitial = (idx: number) => {
-    const dir = cardDirections[idx % cardDirections.length];
-    switch (dir) {
-      case "bottom":
-        return { opacity: 0, y: 60, x: 0, scale: 0.95 };
-      case "left":
-        return { opacity: 0, x: -60, y: 0, scale: 0.95 };
-      case "right":
-        return { opacity: 0, x: 60, y: 0, scale: 0.95 };
-      case "top":
-        return { opacity: 0, y: -60, x: 0, scale: 0.95 };
-      default:
-        return { opacity: 0, y: 60, x: 0, scale: 0.95 };
-    }
-  };
-
+const ServicesSection = () => {
   return (
-    <section className="relative w-full py-28 bg-gradient-to-b from-gray-50 via-white to-gray-100 overflow-hidden">
-      {/* Section Header */}
+    <section className="w-full py-28 bg-white text-gray-900 font-poppins">
+      {/* ================= HEADER ================= */}
       <motion.div
-        initial={{ opacity: 0, y: -60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        initial="hidden"
+        whileInView="show"
         viewport={{ once: true }}
-        className="max-w-7xl mx-auto px-6 md:px-12 text-center mb-28"
+        variants={fadeUp}
+        className="max-w-6xl mx-auto px-6 md:px-12 text-center mb-20"
       >
-        <p className="text-indigo-500 font-semibold text-lg md:text-xl uppercase tracking-wider">
+        <p className="text-indigo-600 font-semibold tracking-wide uppercase text-sm">
           What We Do
         </p>
-        <motion.h2
-          initial={{ opacity: 0, y: -40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 relative inline-block"
-        >
-          Services
-          <span className="absolute left-0 bottom-[-12px] w-full h-2 rounded-full bg-gradient-to-r from-blue-500 to-black"></span>
-        </motion.h2>
+
+        <h2 className="text-4xl md:text-5xl font-extrabold mt-3 relative inline-block">
+          Our Services
+          <span className="absolute -bottom-2 left-0 w-full h-[3px] bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full"></span>
+        </h2>
+
+        <p className="mt-6 text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
+          We deliver modern, high-quality solutions designed to help your business grow.
+        </p>
       </motion.div>
 
-      {/* Services Grid */}
+      {/* ================= SERVICES GRID ================= */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
         {services.map((service, idx) => (
           <motion.div
             key={service.id}
-            initial={getCardInitial(idx)}
-            whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.6, delay: idx * 0.15 },
+            }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: idx * 0.15, ease: "easeOut" }}
-            className="relative bg-gradient-to-br from-blue-500 to-black rounded-3xl p-10 shadow-2xl hover:shadow-3xl hover:scale-105 transition-transform duration-500 overflow-hidden flex flex-col justify-between min-h-[550px] group"
+            className="bg-white shadow-[0_6px_25px_rgba(0,0,0,0.07)] hover:shadow-[0_10px_40px_rgba(0,0,0,0.1)]
+                       transition-all duration-500 rounded-3xl p-10 border border-gray-200 hover:border-indigo-300
+                       hover:-translate-y-2 group min-h-[470px] flex flex-col justify-between"
           >
-            {/* Decorative gradient circles */}
-            <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-blue-300/20 filter blur-3xl transition-all duration-500 group-hover:scale-110"></div>
-            <div className="absolute -bottom-12 -left-12 w-40 h-40 rounded-full bg-black/20 filter blur-3xl transition-all duration-500 group-hover:scale-110"></div>
+            {/* Card Title */}
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition">
+                {service.title}
+              </h3>
 
-            {/* Glassmorphism overlay */}
-            <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-3xl pointer-events-none"></div>
+              <p className="text-gray-600 text-base leading-relaxed">
+                {service.description}
+              </p>
 
-            {/* Card Content */}
-            <div className="relative z-10 flex flex-col h-full justify-between">
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-white/90 text-base md:text-lg">{service.description}</p>
-              </div>
-
-              <ul className="flex flex-col gap-3 mt-4">
-                {service.features.map((feature, fIdx) => (
+              {/* Features List */}
+              <ul className="flex flex-col gap-3 mt-6">
+                {service.features.map((feature, i) => (
                   <li
-                    key={fIdx}
-                    className="flex items-center gap-3 text-white/90 font-medium hover:text-blue-300 transition-colors duration-300"
+                    key={i}
+                    className="flex items-center gap-3 text-gray-700 font-medium"
                   >
-                    <FaCheckCircle className="w-5 h-5 text-blue-300 animate-pulse-slow" />
+                    <FaCheckCircle className="w-5 h-5 text-indigo-500" />
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
-
-              <button className="mt-6 px-6 py-3 bg-gradient-to-r from-blue-600 to-black text-white font-semibold rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300">
-                Learn More
-              </button>
             </div>
+
+            <button className="mt-8 px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full 
+                               shadow-md hover:bg-indigo-700 transition duration-300">
+              Learn More
+            </button>
           </motion.div>
         ))}
       </div>
-
-      {/* Background Glows */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-200/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse-slow"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-black/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse-slow"></div>
     </section>
   );
 };

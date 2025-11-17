@@ -8,6 +8,7 @@ import Services from './pages/services.tsx'
 import About from './pages/about.tsx'
 import Blog from './pages/blog.tsx'
 import { PremiumSection } from './features/index.ts'
+import BlogDetail from './pages/blogDetail.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -18,7 +19,9 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/form" element={<PremiumSection />} />
+        
       </Routes>
     </Layout>
     </BrowserRouter>

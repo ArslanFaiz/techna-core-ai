@@ -1,3 +1,4 @@
+
 export const services = [
   {
     id: 1,
@@ -33,5 +34,50 @@ export const services = [
     description:
       "We create AI systems that adapt to your needs — from customer engagement to operational efficiency. Our team blends cutting-edge algorithms with practical business workflows, delivering AI that actually works.",
     features: ["Custom AI solutions", "Operational efficiency", "Business workflow integration"],
+  },
+];
+// blogsData.ts
+export const blogs = [
+  {
+    id: 1,
+    title: "How AI is Transforming Everyday Business Operations",
+    description:
+      "Artificial Intelligence (AI) has moved from being a futuristic concept to an everyday reality.",
+    image: "/assets/blog-bg.jpg",
+  },
+  {
+    id: 2,
+    title: "The Future of Automation in Tech",
+    description:
+      "Automation is reshaping industries, creating smarter workflows, and improving efficiency.",
+    image: "/assets/blog-bg.jpg",
+  },
+  {
+    id: 3,
+    title: "Top AI Tools for Small Businesses",
+    description:
+      "Discover AI tools that can help small businesses optimize operations and growth.",
+    image: "/assets/blog-bg.jpg",
+  },
+  {
+    id: 4,
+    title: "How AI is Transforming Everyday Business Operations",
+    description:
+      "Artificial Intelligence (AI) has moved from being a futuristic concept to an everyday reality.",
+    image: "/assets/blog-bg.jpg",
+  },
+  {
+    id: 5,
+    title: "The Future of Automation in Tech",
+    description:
+      "Automation is reshaping industries, creating smarter workflows, and improving efficiency.",
+    image: "/assets/blog-bg.jpg",
+  },
+  {
+    id: 6,
+    title: "Top AI Tools for Small Businesses",
+    description:
+      "Discover AI tools that can help small businesses optimize operations and growth.",
+    image: "/assets/blog-bg.jpg",
   },
 ];

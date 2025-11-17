@@ -1,11 +1,14 @@
 import { useState } from "react";
+import PhoneInput from "react-phone-input-2";
+import 'react-phone-input-2/lib/style.css';
+import { FiPhone } from "react-icons/fi"; // Phone icon from react-icons
 
 const services = ["UI/UX Design", "Web Development", "Mobile App", "Product Strategy"];
 
 export default function PremiumSection() {
   const [formData, setFormData] = useState({
     fullName: "",
-    contactNumber: "+1",
+    contactNumber: "",
     email: "",
     service: "",
     message: "",
@@ -14,19 +17,16 @@ export default function PremiumSection() {
   });
 
   const handleChange = (
-  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-) => {
-  const { name, value, type } = e.target;
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value, type } = e.target;
+    const checked = type === "checkbox" ? (e.target as HTMLInputElement).checked : undefined;
 
-  // Narrow to HTMLInputElement to safely access 'checked'
-  const checked = type === "checkbox" ? (e.target as HTMLInputElement).checked : undefined;
-
-  setFormData((prev) => ({
-    ...prev,
-    [name]: type === "checkbox" ? checked : value,
-  }));
-};
-
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,23 +70,33 @@ export default function PremiumSection() {
               </label>
             </div>
 
-            {/* Contact Number */}
-            <div className="relative">
-              <input
-                type="tel"
-                name="contactNumber"
-                value={formData.contactNumber}
-                onChange={handleChange}
-                required
-                className="peer w-full rounded-xl border border-gray-300 dark:border-gray-700 bg-transparent px-4 pt-6 pb-2 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
-                placeholder="Contact Number"
-              />
-              <label className="absolute left-4 top-2 text-gray-500 dark:text-gray-400 text-sm transition-all peer-placeholder-shown:top-6 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm">
-                Contact Number
-              </label>
-            </div>
+{/* Contact Number */}
+<div className="relative">
+  <PhoneInput
+    value={formData.contactNumber}
+    onChange={(phone) =>
+      setFormData({ ...formData, contactNumber: phone })
+    }
+    placeholder="+" 
+    inputClass="peer w-full text-left rounded-xl border border-gray-300 dark:border-gray-700 bg-transparent px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
+    buttonClass={`absolute left-0 top-0 h-full flex items-center justify-center rounded-l-xl border-none bg-transparent text-gray-500 ${
+      !formData.contactNumber ? "invisible" : "visible"
+    }`}
+    // dropdownClass="hidden"
+    inputStyle={{ width: "100%", background: "transparent", paddingLeft: "50px" }}
+    // enableAreaCodes={true}
+    // disableDropdown={true}
+    country={undefined}
+  />
+  {/* Phone icon: only show if input is empty */}
+  {!formData.contactNumber && (
+    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
+      <FiPhone size={20} />
+    </div>
+  )}
+</div>
 
-            {/* Email */}
+      {/* Email */}
             <div className="relative">
               <input
                 type="email"

@@ -42,7 +42,7 @@ const Hero = () => {
   {/* Headings */}
   <h1
     className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl 
-    font-medium text-white font-poppins 
+    font-normal text-white font-poppins 
     transition-all duration-700 
     ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
   >
@@ -76,29 +76,23 @@ const Hero = () => {
     transition-all duration-700 delay-400 
     ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
   >
-    {stats.map((stat, idx) => (
-      <div key={stat.id} className="flex flex-col items-center gap-3">
-        <p className="text-[48px] sm:text-[54px] md:text-[64px] font-bold text-white">
-          {stat.id === 1 ? (
-            <img
-              src="/assets/star-rating.svg"
-              alt="rating"
-              width={150}
-              height={20}
-              className="object-contain"
-            />
-          ) : (
-            <>
-              {Math.round(counters[idx])}+
-            </>
-          )}
-        </p>
-
-        <p className="text-[16px] sm:text-[17px] md:text-[19px] text-white/80">
-          {stat.label}
-        </p>
-      </div>
-    ))}
+    {/* Stats */}
+        <div
+          className={`flex flex-row items-center justify-center gap-8 sm:gap-12 mt-12 transition-all duration-700 delay-400 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+        >
+          {stats.map((stat, idx) => (
+            <div key={stat.id} className="flex flex-col items-center gap-3">
+              <div className="flex items-center justify-center h-[64px]">
+                {stat.id === 1 ? (
+                  <img src="/assets/star-rating.svg" alt="rating" width={150} height={20} className="object-contain" />
+                ) : (
+                  <span className="text-[48px] sm:text-[54px] md:text-[64px] font-bold text-white">{Math.round(counters[idx])}+</span>
+                )}
+              </div>
+              <p className="text-[16px] sm:text-[17px] md:text-[19px] text-white/80 text-center">{stat.label}</p>
+            </div>
+          ))}
+        </div>
   </div>
 
   {/* Button */}
