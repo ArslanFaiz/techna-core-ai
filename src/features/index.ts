@@ -1,3 +1,7 @@
 export { default as Home } from './home'
 export { default as ToolsTechnology } from './home/toolsTechnology'
 export { default as PremiumSection } from './home/premiumSection'
+export { default as AboutUs } from './home/aboutUs'
+export { default as ApartSection } from './home/apartSection'
+export { default as ServiceSection } from './home/serviceSection'
+export  {default as IndusSection} from './home/indusSection'

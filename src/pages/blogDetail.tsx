@@ -1,6 +1,6 @@
-// src/pages/BlogDetail.tsx
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { blogs } from "../constants";
 
 const BlogDetail = () => {
@@ -16,6 +16,43 @@ const BlogDetail = () => {
 
   const publishedDate = "January 15, 2025";
   const author = "Admin";
+
+  // ----------------- NEW STATE FOR COMMENTS -----------------
+  const [comments, setComments] = useState([
+    {
+      name: "Arslan",
+      text: "Amazing blog! Very informative and well-written. I loved how the concepts were explained clearly.",
+      time: "2 hours ago",
+      replies: [
+        {
+          name: "John Doe",
+          text: "Totally agree with you! The writing was very clean.",
+          time: "1 hour ago",
+        },
+      ],
+    },
+  ]);
+
+  const [commentName, setCommentName] = useState("");
+  const [commentEmail, setCommentEmail] = useState("");
+  const [commentText, setCommentText] = useState("");
+
+  const handlePostComment = () => {
+  if (!commentName || !commentText) return; // require name and text
+
+  const newComment = {
+    name: commentName,
+    text: commentText,
+    time: "Just now",
+    replies: [],
+  };
+
+  setComments([newComment, ...comments]); // add new comment at top
+  setCommentName("");
+  setCommentEmail("");
+  setCommentText("");
+};
+
 
   return (
     <div className="w-full min-h-screen bg-white text-gray-800 dark:text-gray-100 py-16">
@@ -48,9 +85,7 @@ const BlogDetail = () => {
             {author}
           </span>{" "}
           •{" "}
-          <span className="text-[#0A3D62] dark:text-[#A5C9FF]">
-            {publishedDate}
-          </span>
+          <span className="text-[#0A3D62] dark:text-[#A5C9FF]">{publishedDate}</span>
         </motion.p>
 
         {/* Blog Image */}
@@ -66,7 +101,7 @@ const BlogDetail = () => {
         {/* Blog Description */}
         <motion.p
           className="text-lg sm:text-xl leading-relaxed 
-          text-gray-700 dark:text-gray-300 
+          text-gray-700 dark:text-gray-400 
           border-l-4 border-[#0065CA] dark:border-[#5CAEFF] pl-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,10 +121,7 @@ const BlogDetail = () => {
           </button>
         </div>
 
-        {/* ---------------------------------------------------------------- */}
-        {/* ----------------------  COMMENTS SECTION  ---------------------- */}
-        {/* ---------------------------------------------------------------- */}
-
+        {/* ------------------ COMMENTS SECTION ------------------ */}
         <motion.div
           className="mt-20 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
@@ -106,6 +138,8 @@ const BlogDetail = () => {
               <input
                 type="text"
                 placeholder="Full Name"
+                value={commentName}
+                onChange={(e) => setCommentName(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 
                 text-gray-700 dark:text-gray-200 focus:ring-2 focus:ring-[#0065CA] outline-none"
               />
@@ -113,6 +147,8 @@ const BlogDetail = () => {
               <input
                 type="email"
                 placeholder="Email Address"
+                value={commentEmail}
+                onChange={(e) => setCommentEmail(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 
                 text-gray-700 dark:text-gray-200 focus:ring-2 focus:ring-[#0065CA] outline-none"
               />
@@ -121,11 +157,14 @@ const BlogDetail = () => {
             <textarea
               placeholder="Write your comment..."
               rows={5}
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)}
               className="w-full mt-4 px-4 py-3 rounded-xl bg-white dark:bg-gray-900 border 
               border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200 focus:ring-2 focus:ring-[#0065CA] outline-none"
             ></textarea>
 
             <button
+              onClick={handlePostComment}
               className="mt-5 bg-[#0065CA] hover:bg-[#004A96] text-white font-semibold px-8 py-3 
               rounded-full transition-all duration-300 shadow-md hover:shadow-xl"
             >
@@ -141,53 +180,50 @@ const BlogDetail = () => {
             Recent Comments
           </h3>
 
-          {/* Sample Comments */}
           <div className="space-y-8">
-            {/* Parent Comment */}
-            <div className="p-5 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-blue-200 dark:bg-blue-900 rounded-full flex items-center justify-center text-xl font-bold text-blue-700 dark:text-blue-300">
-                  A
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-800 dark:text-gray-200">Arslan</h4>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">2 hours ago</p>
-                </div>
-              </div>
-
-              <p className="mt-3 text-gray-700 dark:text-gray-300">
-                Amazing blog! Very informative and well-written.  
-                I loved how the concepts were explained clearly.
-              </p>
-
-              {/* Reply Button */}
-              <button className="mt-3 text-[#0065CA] dark:text-[#5CAEFF] font-medium hover:underline">
-                Reply
-              </button>
-
-              {/* Reply Section */}
-              <div className="mt-4 pl-6 border-l-2 border-gray-300 dark:border-gray-600">
-                <div className="p-4 bg-gray-200 dark:bg-gray-700 rounded-xl shadow-sm">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-purple-200 dark:bg-purple-900 rounded-full flex items-center justify-center text-lg font-bold text-purple-700 dark:text-purple-300">
-                      J
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-800 dark:text-gray-200">
-                        John Doe
-                      </h4>
-                      <p className="text-gray-500 dark:text-gray-400 text-sm">
-                        1 hour ago
-                      </p>
-                    </div>
+            {comments.map((comment, idx) => (
+              <div
+                key={idx}
+                className="p-5 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-blue-200 dark:bg-blue-900 rounded-full flex items-center justify-center text-xl font-bold text-blue-700 dark:text-blue-300">
+                    {comment.name.charAt(0)}
                   </div>
-
-                  <p className="mt-2 text-gray-700 dark:text-gray-300">
-                    Totally agree with you! The writing was very clean.
-                  </p>
+                  <div>
+                    <h4 className="font-bold text-gray-800 dark:text-gray-200">{comment.name}</h4>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">{comment.time}</p>
+                  </div>
                 </div>
+
+                <p className="mt-3 text-gray-700 dark:text-gray-300">{comment.text}</p>
+
+                {/* Reply Button */}
+                {comment.replies.length > 0 && (
+                  <div className="mt-4 pl-6 border-l-2 border-gray-300 dark:border-gray-600">
+                    {comment.replies.map((reply, rIdx) => (
+                      <div
+                        key={rIdx}
+                        className="p-4 bg-gray-200 dark:bg-gray-700 rounded-xl shadow-sm mt-3"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-purple-200 dark:bg-purple-900 rounded-full flex items-center justify-center text-lg font-bold text-purple-700 dark:text-purple-300">
+                            {reply.name.charAt(0)}
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-gray-800 dark:text-gray-200">
+                              {reply.name}
+                            </h4>
+                            <p className="text-gray-500 dark:text-gray-400 text-sm">{reply.time}</p>
+                          </div>
+                        </div>
+                        <p className="mt-2 text-gray-700 dark:text-gray-300">{reply.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-            </div>
+            ))}
           </div>
         </motion.div>
       </motion.div>
