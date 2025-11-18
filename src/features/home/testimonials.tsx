@@ -2,31 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaQuoteLeft, FaStar } from "react-icons/fa";
-
-const testimonials = [
-  {
-    name: "Randall Smith",
-    project: "Mobile App Development",
-    text: "Our mobile app project with TechnaCore was a complete success. They delivered a sleek, intuitive app for both iOS and Android, which has greatly enhanced how we engage with our clients.",
-    avatar: "https://i.pravatar.cc/80?img=1",
-    rating: 5,
-  },
-  {
-    name: "Allison",
-    project: "Cloud & SaaS Solutions",
-    text: "TechnaCore seamlessly migrated our business to the cloud and developed a custom SaaS solution tailored to our needs. Their expertise ensured a smooth transition and outstanding long-term support.",
-    avatar: "https://i.pravatar.cc/80?img=2",
-    rating: 5,
-  },
-  {
-    name: "Jennifer O’Neil",
-    project: "E-Commerce Platform",
-    text: "With TechnaCore, we launched a secure and modern e-commerce platform. Their work on payment integration, scalability, and user experience has significantly boosted our online sales.",
-    avatar: "https://i.pravatar.cc/80?img=3",
-    rating: 5,
-  },
-];
-
+import { testimonials } from "../../constants";
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const timeoutRef = useRef<number | null>(null);

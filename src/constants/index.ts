@@ -81,3 +81,40 @@ export const blogs = [
     image: "/assets/blog-bg.jpg",
   },
 ];
+export const testimonials = [
+  {
+    name: "Randall Smith",
+    project: "Mobile App Development",
+    text: "Our mobile app project with TechnaCore was a complete success. They delivered a sleek, intuitive app for both iOS and Android, which has greatly enhanced how we engage with our clients.",
+    avatar: "https://i.pravatar.cc/80?img=1",
+    rating: 5,
+  },
+  {
+    name: "Allison",
+    project: "Cloud & SaaS Solutions",
+    text: "TechnaCore seamlessly migrated our business to the cloud and developed a custom SaaS solution tailored to our needs. Their expertise ensured a smooth transition and outstanding long-term support.",
+    avatar: "https://i.pravatar.cc/80?img=2",
+    rating: 5,
+  },
+  {
+    name: "Jennifer O’Neil",
+    project: "E-Commerce Platform",
+    text: "With TechnaCore, we launched a secure and modern e-commerce platform. Their work on payment integration, scalability, and user experience has significantly boosted our online sales.",
+    avatar: "https://i.pravatar.cc/80?img=3",
+    rating: 5,
+  },
+];
+export const techLogos = [
+  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", alt: "HTML" },
+  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", alt: "CSS" },
+  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", alt: "JavaScript" },
+  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", alt: "React" },
+  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg", alt: "Redux" },
+  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", alt: "Node.js" },
+  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", alt: "Next.js" },
+  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", alt: "Python" },
+  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", alt: "TypeScript" },
+  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg", alt: "Vite" },
+  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg", alt: "GraphQL" },
+  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", alt: "Docker" },
+];
