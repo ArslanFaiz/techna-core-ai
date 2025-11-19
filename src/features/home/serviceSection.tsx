@@ -3,14 +3,14 @@ import { motion } from "framer-motion";
 
 const ServiceSection = () => {
   return (
-    <section className="w-full bg-gradient-to-br from-white via-slate-50 to-blue-50 py-24 px-4 sm:px-6 md:px-12 relative overflow-hidden">
+    <section className="w-full bg-gradient-to-br from-white via-slate-50 to-blue-50 py-12 md:py-24 px-4 sm:px-6 md:px-12 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-200/30 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-20 max-w-3xl mx-auto"
+className="text-center mb-8 sm:mb-20 max-w-3xl mx-auto"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}

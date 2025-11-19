@@ -49,7 +49,7 @@ const ToolCard = ({ icon: Icon, title }: ToolCardProps) => (
 
 const ToolsTechSection = () => {
   return (
-    <section className="w-full py-24 bg-gradient-to-b from-white to-gray-100">
+ <section className="w-full py-5 md:py-24 bg-gradient-to-b from-white to-gray-100">
       <div className="max-w-7xl mx-auto px-6 text-center">
 
         {/* Gradient Heading */}
@@ -67,7 +67,7 @@ const ToolsTechSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-gray-600 max-w-2xl mx-auto mb-16 text-lg"
+ className="text-gray-600 max-w-2xl mx-auto mb-8 md:mb-16 text-lg"
         >
           We use top-notch modern technologies to deliver high-performance, scalable, and
           future-ready digital solutions.
@@ -86,7 +86,7 @@ const ToolsTechSection = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-20"
+ className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-8 md:mb-20"
         >
           <ToolCard icon={FaVuejs} title="Vue JS" />
           <ToolCard icon={SiNextdotjs} title="Next JS" />

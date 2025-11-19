@@ -10,15 +10,14 @@ const fadeUp = {
 
 const ServicesSection = () => {
   return (
-    <section className="w-full py-28 bg-white text-gray-900 font-poppins">
+ <section className="w-full py-16 md:py-28 bg-white text-gray-900 font-poppins">
       {/* ================= HEADER ================= */}
       <motion.div
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
         variants={fadeUp}
-        className="max-w-6xl mx-auto px-6 md:px-12 text-center mb-20"
-      >
+className="max-w-6xl mx-auto px-6 md:px-12 text-center mb-12 md:mb-20"      >
         <p className="text-indigo-600 font-semibold tracking-wide uppercase text-sm">
           What We Do
         </p>
@@ -34,7 +33,7 @@ const ServicesSection = () => {
       </motion.div>
 
       {/* ================= SERVICES GRID ================= */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12">
         {services.map((service, idx) => (
           <motion.div
             key={service.id}

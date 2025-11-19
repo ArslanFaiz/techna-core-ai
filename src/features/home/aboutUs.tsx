@@ -5,7 +5,7 @@ const AboutUs = () => {
   return (
     <>
       {/* About Us Section */}
-      <section className="w-full bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 py-24 px-4 sm:px-6 md:px-12 relative overflow-hidden">
+<section className="w-full bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 py-12 md:py-24 px-4 sm:px-6 md:px-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-slate-200/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-0"></div>
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-16 relative z-10">
           {/* Left Content */}

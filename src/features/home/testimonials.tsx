@@ -20,7 +20,7 @@ const TestimonialsSection = () => {
   }, [currentIndex]);
 
   return (
-    <section className="relative py-28 bg-white text-gray-800 overflow-hidden">
+  <section className="relative py-15 md:py-28 bg-white text-gray-800 overflow-hidden">
       {/* Decorative gradient glows */}
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-gradient-to-br from-cyan-300 via-teal-300 to-violet-300 rounded-full blur-3xl opacity-30 pointer-events-none"></div>
       <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-tr from-cyan-300 via-teal-300 to-violet-300 rounded-full blur-3xl opacity-30 pointer-events-none"></div>
