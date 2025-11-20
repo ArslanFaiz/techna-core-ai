@@ -1,3 +1,4 @@
+import { FaChartLine, FaCloud, FaLaptopCode, FaMobileAlt, FaRocket, FaShieldAlt } from "react-icons/fa";
 
 export const services = [
   {
@@ -117,4 +118,66 @@ export const techLogos = [
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg", alt: "Vite" },
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg", alt: "GraphQL" },
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", alt: "Docker" },
+];
+export const serviceses= [
+  {
+    id: "s1",
+    title: "Cloud-Native Architecture",
+    description:
+      "Design and implement scalable cloud systems using modern microservices patterns and serverless best-practices.",
+    features: ["Auto-scaling", "Fault tolerance", "Cost optimization"],
+    Icon: FaCloud,
+    colorFrom: "from-indigo-500",
+    colorTo: "to-purple-600",
+  },
+  {
+    id: "s2",
+    title: "Mobile & Web Apps",
+    description:
+      "Fast, accessible and delightful experiences — React, TypeScript, native, and PWAs built for growth.",
+    features: ["Responsive UI", "Performance budget", "Offline-ready"],
+    Icon: FaMobileAlt,
+    colorFrom: "from-blue-500",
+    colorTo: "to-indigo-600",
+  },
+  {
+    id: "s3",
+    title: "Security & Compliance",
+    description:
+      "Security-first engineering, threat modeling, and compliance (GDPR / SOC2) advisory for serious products.",
+    features: ["Threat modeling", "Pen-test readiness", "Secure CI/CD"],
+    Icon: FaShieldAlt,
+    colorFrom: "from-purple-600",
+    colorTo: "to-pink-600",
+  },
+  {
+    id: "s4",
+    title: "Growth & Performance",
+    description:
+      "Drive measurable growth with performance engineering, analytics, and A/B experimentation.",
+    features: ["Performance audit", "Data instrumentation", "A/B testing"],
+    Icon: FaChartLine,
+    colorFrom: "from-teal-400",
+    colorTo: "to-blue-600",
+  },
+  {
+    id: "s5",
+    title: "Product Engineering",
+    description:
+      "End-to-end product design and engineering — from discovery and prototyping to production-ready code.",
+    features: ["Design systems", "Iterative delivery", "Quality engineering"],
+    Icon: FaLaptopCode,
+    colorFrom: "from-indigo-400",
+    colorTo: "to-cyan-600",
+  },
+  {
+    id: "s6",
+    title: "Platform & Cloud Ops",
+    description:
+      "Reliable platform engineering for release velocity: infra-as-code, observability, and runbooks.",
+    features: ["IaC", "Observability", "Runbook automation"],
+    Icon: FaRocket,
+    colorFrom: "from-pink-500",
+    colorTo: "to-red-500",
+  },
 ];

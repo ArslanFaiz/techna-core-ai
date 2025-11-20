@@ -89,7 +89,7 @@ const ProjectRequirementsSection = () => {
   whileInView={{ opacity: 1, y: 0 }}     // moves upward and fades in
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true }}
-className="relative w-full py-0 md:py-24 bg-gradient-to-r from-indigo-50 via-white to-purple-100"
+className="relative w-full py-0 md:py-2 bg-gradient-to-r from-indigo-50 via-white to-purple-100"
 >
 
     <section id="project" className="relative w-full py-24 bg-gradient-to-r from-indigo-50 via-white to-purple-100">

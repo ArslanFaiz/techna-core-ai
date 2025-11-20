@@ -8,7 +8,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const location = useLocation(); // GET CURRENT ROUTE
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -16,22 +16,38 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ACTIVE LINK FUNCTION
-  const isActive = (path:string) =>
-    location.pathname === path
-      ? "text-[#0065CA] underline underline-offset-4 font-semibold"
-      : "text-white";
+  const isActive = (path: string) => {
+    const base = "underline underline-offset-4 font-semibold";
+
+    if (location.pathname === path) {
+      return isScrolled
+        ? "text-[#0065CA] " + base
+        : "text-black " + base;
+    }
+    return isScrolled ? "text-white" : "text-white";
+  };
+
+  // 🔥 Reusable underline animation classes
+  const underlineAnim =
+    "relative group after:content-[''] after:absolute after:left-0 after:-bottom-1 " +
+    "after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-500 " +
+    "group-hover:after:w-full";
 
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-500
-      ${isScrolled ? "bg-black/30 backdrop-blur-md" : "bg-black/30 backdrop-blur-0"}`}
+        ${
+          isScrolled
+            ? "bg-black/40 backdrop-blur-xl shadow-lg"
+            : "bg-gradient-to-r from-[#004a9f]/90 via-[#0065ca]/80 to-[#004a9f]/90 backdrop-blur-md"
+        }
+      `}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 flex items-center justify-between h-20">
 
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <img 
+          <img
             src="/assets/logo.png"
             alt="Logo"
             className="object-contain"
@@ -44,28 +60,28 @@ const Header = () => {
 
           <Link
             to="/"
-            className={`${isActive("/")} hover:text-[#0065CA] transition`}
+            className={`${isActive("/")} ${isScrolled ? "hover:text-[#0065CA]" : "hover:text-black"} transition ${underlineAnim}`}
           >
             Home
           </Link>
 
           <Link
             to="/services"
-            className={`${isActive("/services")} hover:text-[#0065CA] transition`}
+            className={`${isActive("/services")} ${isScrolled ? "hover:text-[#0065CA]" : "hover:text-black"} transition ${underlineAnim}`}
           >
             Services
           </Link>
 
           <Link
             to="/about"
-            className={`${isActive("/about")} hover:text-[#0065CA] transition`}
+            className={`${isActive("/about")} ${isScrolled ? "hover:text-[#0065CA]" : "hover:text-black"} transition ${underlineAnim}`}
           >
             About Us
           </Link>
 
           <Link
             to="/blog"
-            className={`${isActive("/blog")} hover:text-[#0065CA] transition`}
+            className={`${isActive("/blog")} ${isScrolled ? "hover:text-[#0065CA]" : "hover:text-black"} transition ${underlineAnim}`}
           >
             Blog
           </Link>
@@ -99,11 +115,11 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-<div className="mobile-menu md:hidden bg-black/90 backdrop-blur-md px-6 py-4 flex flex-col gap-4 font-medium animate-fade-in">
+        <div className="mobile-menu md:hidden bg-black/90 backdrop-blur-md px-6 py-4 flex flex-col gap-4 font-medium animate-fade-in">
 
           <Link
             to="/"
-            className={`${isActive("/")} hover:text-[#0065CA] transition`}
+            className={`${isActive("/")} hover:text-[#0065CA] transition ${underlineAnim}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Home
@@ -111,7 +127,7 @@ const Header = () => {
 
           <Link
             to="/services"
-            className={`${isActive("/services")} hover:text-[#0065CA] transition`}
+            className={`${isActive("/services")} hover:text-[#0065CA] transition ${underlineAnim}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Services
@@ -119,7 +135,7 @@ const Header = () => {
 
           <Link
             to="/about"
-            className={`${isActive("/about")} hover:text-[#0065CA] transition`}
+            className={`${isActive("/about")} hover:text-[#0065CA] transition ${underlineAnim}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
             About Us
@@ -127,7 +143,7 @@ const Header = () => {
 
           <Link
             to="/blog"
-            className={`${isActive("/blog")} hover:text-[#0065CA] transition`}
+            className={`${isActive("/blog")} hover:text-[#0065CA] transition ${underlineAnim}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Blog

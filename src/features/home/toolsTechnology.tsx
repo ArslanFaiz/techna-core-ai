@@ -17,110 +17,103 @@ import {
   SiFlask,
 } from "react-icons/si";
 
-type ToolCardProps = {
-  icon: React.ComponentType<{ className?: string }>;
-  title: string;
+const tools = {
+  frontend: [
+    { icon: FaVuejs, title: "Vue JS" },
+    { icon: SiNextdotjs, title: "Next JS" },
+    { icon: FaReact, title: "React JS" },
+    { icon: SiTypescript, title: "TypeScript" },
+    { icon: FaJs, title: "JavaScript" },
+    { icon: FaHtml5, title: "HTML 5" },
+    { icon: FaCss3Alt, title: "CSS 3" },
+  ],
+  backend: [
+    { icon: SiDjango, title: "Django" },
+    { icon: SiRubyonrails, title: "Ruby on Rails" },
+    { icon: SiNestjs, title: "Nest JS" },
+    { icon: FaNodeJs, title: "Node JS" },
+    { icon: FaPython, title: "Python" },
+    { icon: SiFlask, title: "Flask" },
+  ],
 };
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-const ToolCard = ({ icon: Icon, title }: ToolCardProps) => (
-  <motion.div
-    variants={fadeUp}
-    whileHover={{ scale: 1.12 }}
-    className="relative flex flex-col items-center gap-4 p-8 rounded-3xl
-               bg-white/60 backdrop-blur-xl 
-               border border-gray-200 shadow-[0_8px_30px_rgb(0,0,0,0.06)]
-               hover:shadow-[0_10px_40px_rgba(0,101,202,0.25)]
-               transition-all duration-300 group"
-  >
-    {/* Premium gradient ring behind icon */}
-    <div className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100
-                    transition-all duration-500 blur-2xl
-                    bg-gradient-to-br from-blue-500/40 to-purple-500/40 rounded-3xl" />
-
-    <Icon className="text-5xl text-[#0065ca] group-hover:text-blue-600 transition-all" />
-    <p className="font-semibold text-gray-800 text-lg">{title}</p>
-  </motion.div>
-);
-
 const ToolsTechSection = () => {
-  return (
- <section className="w-full py-5 md:py-24 bg-gradient-to-b from-white to-gray-100">
-      <div className="max-w-7xl mx-auto px-6 text-center">
+  return (<section className="w-full py-20 md:py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden"> <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+    <motion.h2
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-4xl md:text-5xl font-extrabold mb-6
+bg-gradient-to-r from-blue-600 via-purple-600 to-black bg-clip-text text-transparent"
+    >
+      Tools & Technologies
+    </motion.h2>
+    <motion.p
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.3, duration: 0.8 }}
+      className="text-gray-600 max-w-3xl mx-auto mb-16 md:mb-10 text-lg"
+    >
+      We leverage modern technologies to build high-performance, scalable, and future-ready solutions.
+    </motion.p>
 
-        {/* Gradient Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-4xl md:text-5xl font-extrabold mb-4 
-                     bg-gradient-to-r from-blue-600 to-black bg-clip-text text-transparent"
-        >
-          Tools & Technologies
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
- className="text-gray-600 max-w-2xl mx-auto mb-8 md:mb-16 text-lg"
-        >
-          We use top-notch modern technologies to deliver high-performance, scalable, and
-          future-ready digital solutions.
-        </motion.p>
-
-        {/* Frontend */}
+    {Object.entries(tools).map(([category, items]) => (
+      <motion.div key={category} initial="hidden" whileInView="show" viewport={{ once: true }}>
         <motion.h3
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="text-2xl font-semibold mb-8 text-gray-900"
+          variants={fadeInUp}
+          className="text-2xl md:text-3xl font-semibold mb-10 text-gray-900 capitalize"
         >
-          Frontend
+          {category}
         </motion.h3>
-
         <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
- className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-8 md:mb-20"
+          className="flex flex-wrap justify-center gap-8 md:gap-12"
+          variants={{
+            show: { transition: { staggerChildren: 0.12 } },
+          }}
         >
-          <ToolCard icon={FaVuejs} title="Vue JS" />
-          <ToolCard icon={SiNextdotjs} title="Next JS" />
-          <ToolCard icon={FaReact} title="React JS" />
-          <ToolCard icon={SiTypescript} title="TypeScript" />
-          <ToolCard icon={FaJs} title="JavaScript" />
-          <ToolCard icon={FaHtml5} title="HTML 5" />
-          <ToolCard icon={FaCss3Alt} title="CSS 3" />
+          {items.map((tool, idx) => (
+            <motion.div
+              key={idx}
+              variants={fadeInUp}
+              className="relative flex flex-col items-center justify-center gap-3 p-5 rounded-full
+                         bg-white/40 backdrop-blur-md shadow-lg
+                         hover:shadow-[0_20px_40px_rgba(0,101,202,0.25)]
+                         transition-all duration-500 cursor-default"
+            >
+              {/* Floating Icon */}
+              <motion.div
+                animate={{ y: ["0%", "-6%", "0%"], rotate: [0, 5, -5, 0] }}
+                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                className="p-4 rounded-full bg-gradient-to-tr from-blue-100 to-purple-200 text-[#0065ca] text-4xl md:text-5xl shadow-md"
+              >
+                <tool.icon />
+              </motion.div>
+              <p className="text-sm md:text-base font-semibold text-gray-800">{tool.title}</p>
+            </motion.div>
+          ))}
         </motion.div>
+      </motion.div>
+    ))}
+  </div>
 
-        {/* Backend */}
-        <motion.h3
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="text-2xl font-semibold mb-8 text-gray-900"
-        >
-          Backend
-        </motion.h3>
+    {/* Background Glowing Blobs */}
+    <motion.div
+      className="absolute -top-40 -left-32 w-96 h-96 bg-blue-200/20 rounded-full blur-[180px] pointer-events-none"
+      animate={{ rotate: [0, 15, 0], y: [0, 20, 0], x: [0, 10, 0] }}
+      transition={{ repeat: Infinity, duration: 22, ease: "easeInOut" }}
+    />
+    <motion.div
+      className="absolute -bottom-40 -right-32 w-96 h-96 bg-purple-200/20 rounded-full blur-[180px] pointer-events-none"
+      animate={{ rotate: [0, -15, 0], y: [0, -20, 0], x: [0, -10, 0] }}
+      transition={{ repeat: Infinity, duration: 26, ease: "easeInOut" }}
+    />
+  </section>
 
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8"
-        >
-          <ToolCard icon={SiDjango} title="Django" />
-          <ToolCard icon={SiRubyonrails} title="Ruby on Rails" />
-          <ToolCard icon={SiNestjs} title="Nest JS" />
-          <ToolCard icon={FaNodeJs} title="Node JS" />
-          <ToolCard icon={FaPython} title="Python" />
-          <ToolCard icon={SiFlask} title="Flask" />
-        </motion.div>
-      </div>
-    </section>
   );
 };
 
