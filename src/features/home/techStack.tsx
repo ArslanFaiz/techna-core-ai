@@ -12,7 +12,7 @@ const totalLogos = techLogos.length;
 useEffect(() => {
 const interval = setInterval(() => {
 setCurrentIndex(prev => (prev + 1) % totalLogos);
-}, 5000);
+}, 2000);
 
 
 return () => clearInterval(interval);
@@ -38,7 +38,7 @@ controls.start({
 return ( <section className="relative w-full h-32 md:h-40 overflow-hidden bg-gray-100 flex items-center">
 <motion.div
 ref={sliderRef}
-className="flex items-center space-x-7 md:space-x-12"
+className="flex items-center space-x-7 md:space-x-8"
 animate={controls}
 >
 {[...techLogos, ...techLogos].map((logo, idx) => ( <img
