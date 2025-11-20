@@ -89,16 +89,16 @@ const ProjectRequirementsSection = () => {
   whileInView={{ opacity: 1, y: 0 }}     // moves upward and fades in
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true }}
-className="relative w-full py-0 md:py-2 bg-gradient-to-r from-indigo-50 via-white to-purple-100"
+className="relative w-full py-0 bg-gradient-to-r from-indigo-50 via-white to-purple-100"
 >
 
-    <section id="project" className="relative w-full py-24 bg-gradient-to-r from-indigo-50 via-white to-purple-100">
+<section id="project" className="relative w-full py-24 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-950">
       {/* Heading */}
       <div className="text-center mb-12 px-6 md:px-12">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-100">
           Give Your Project Requirements
         </h2>
-        <p className="mt-3 text-gray-600 text-lg">
+        <p className="mt-3 text-gray-400 text-lg">
           Choose how you’d like to share your project details with us.
         </p>
       </div>

@@ -1,83 +1,75 @@
 import { motion } from "framer-motion";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
+hidden: { opacity: 0, y: 20 },
+show: { opacity: 1, y: 0 },
 };
-const handleScroll = (sectionId:string) => {
-    const element = document.getElementById(sectionId);
-    if (element) element.scrollIntoView({ behavior: "smooth" });
-  };
 
+const handleScroll = (sectionId: string) => {
+const element = document.getElementById(sectionId);
+if (element) element.scrollIntoView({ behavior: "smooth" });
+};
 
 export default function Footer() {
-  return (
-   <footer className="bg-[#0a0a0a] text-gray-300 font-poppins">
-  <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-14">
+return ( <footer className="bg-[#0a0a0a] text-gray-300 font-poppins"> <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-14">
+{/* Brand & Description */}
+<motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+<img
+src="/assets/logo.png"
+alt="Logo"
+className="object-contain mx-auto sm:mx-0"
+style={{ width: "200px", height: "40px" }}
+/> <h2 className="text-[20px] sm:text-[22px] text-[#ffff] font-poppins font-bold mt-6 sm:mt-10 text-center sm:text-left">
+Software Development Agency </h2> <p className="text-gray-400 leading-relaxed mt-4 text-center sm:text-left">
+For innovative solutions, strategies to operational excellence, we provide expert </p>
+</motion.div>
 
-    {/* Brand & Description */}
-    <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-      <img 
-        src="/assets/logo.png" 
-        alt="Logo" 
-        className="object-contain mx-auto sm:mx-0" 
-        style={{ width: "200px", height: "40px" }} 
-      />
-      <h2 className="text-[20px] sm:text-[22px] text-[#ffff] font-poppins font-bold mt-6 sm:mt-10 text-center sm:text-left">
-        Software Development Agency
-      </h2>
-      <p className="text-gray-400 leading-relaxed mt-4 text-center sm:text-left">
-        For innovative solutions, strategies to operational excellence, we provide expert
-      </p>
-    </motion.div>
-    {/* Explore */}
-    <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-      <h3 className="text-lg font-semibold mb-4 text-center sm:text-left">Explore</h3>
-      <ul className="space-y-3 text-center sm:text-left">
-        <li
-          className="hover:text-white transition-all hover:translate-x-1 hover:opacity-100 opacity-80 cursor-pointer"
-          onClick={() => handleScroll("hero")}
-        >
-          Resources
-        </li>
 
-        <li className="hover:text-white transition-all hover:translate-x-1 hover:opacity-100 opacity-80 cursor-pointer">
-          <Link to="/blog">
-            Blogs
-          </Link>
-        </li>
-
-        <li
-          className="hover:text-white transition-all hover:translate-x-1 hover:opacity-100 opacity-80 cursor-pointer"
-          onClick={() => handleScroll("hero")}
-        >
-          Documents
-        </li>
-      </ul>
-    </motion.div>
-
-    {/* Menu */}
-    <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-      <h3 className="text-lg font-semibold mb-4 text-center sm:text-left">Menu</h3>
-      <ul className="space-y-3 text-center sm:text-left">
-        {[
-          { name: "Home", path: "/" },
-          { name: "About Us", path: "/about" },
-          { name: "Services", path: "/services" },
-        ].map((item) => (
+    {/* Explore & Menu in a row on mobile */}
+    <div className="grid grid-cols-2 gap-6">
+      {/* Explore */}
+      <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+        <h3 className="text-lg font-semibold mb-4 text-center sm:text-left">Explore</h3>
+        <ul className="space-y-3 text-center sm:text-left">
           <li
-            key={item.name}
             className="hover:text-white transition-all hover:translate-x-1 hover:opacity-100 opacity-80 cursor-pointer"
+            onClick={() => handleScroll("hero")}
           >
-            <Link to={item.path}>
-              {item.name}
-            </Link>
+            Resources
           </li>
-        ))}
-      </ul>
-    </motion.div>
+          <li className="hover:text-white transition-all hover:translate-x-1 hover:opacity-100 opacity-80 cursor-pointer">
+            <Link to="/blog">Blogs</Link>
+          </li>
+          <li
+            className="hover:text-white transition-all hover:translate-x-1 hover:opacity-100 opacity-80 cursor-pointer"
+            onClick={() => handleScroll("hero")}
+          >
+            Documents
+          </li>
+        </ul>
+      </motion.div>
+
+      {/* Menu */}
+      <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+        <h3 className="text-lg font-semibold mb-4 text-center sm:text-left">Menu</h3>
+        <ul className="space-y-3 text-center sm:text-left">
+          {[
+            { name: "Home", path: "/" },
+            { name: "About Us", path: "/about" },
+            { name: "Services", path: "/services" },
+          ].map((item) => (
+            <li
+              key={item.name}
+              className="hover:text-white transition-all hover:translate-x-1 hover:opacity-100 opacity-80 cursor-pointer"
+            >
+              <Link to={item.path}>{item.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </motion.div>
+    </div>
 
     {/* Address & Email + Newsletter */}
     <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
@@ -131,5 +123,6 @@ export default function Footer() {
   </div>
 </footer>
 
-  );
+
+);
 }

@@ -16,16 +16,14 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isActive = (path: string) => {
-    const base = "underline underline-offset-4 font-semibold";
+const isActive = (path: string) => {
+  const base = "underline underline-offset-4 font-semibold";
 
-    if (location.pathname === path) {
-      return isScrolled
-        ? "text-[#0065CA] " + base
-        : "text-black " + base;
-    }
-    return isScrolled ? "text-white" : "text-white";
-  };
+  if (location.pathname === path) {
+    return "text-[#0065CA] " + base; // always blue
+  }
+  return "text-white"; // non-active links
+};
 
   // 🔥 Reusable underline animation classes
   const underlineAnim =
@@ -35,14 +33,15 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-500
-        ${
-          isScrolled
-            ? "bg-black/40 backdrop-blur-xl shadow-lg"
-            : "bg-gradient-to-r from-[#004a9f]/90 via-[#0065ca]/80 to-[#004a9f]/90 backdrop-blur-md"
-        }
-      `}
-    >
+  className={`fixed top-0 w-full z-50 transition-all duration-500
+    ${
+      isScrolled
+        ? "bg-black/40 backdrop-blur-xl shadow-lg"
+        : "bg-transparent"
+    }
+  `}
+>
+
       <div className="max-w-7xl mx-auto px-6 sm:px-10 flex items-center justify-between h-20">
 
         {/* Logo */}
@@ -60,28 +59,28 @@ const Header = () => {
 
           <Link
             to="/"
-            className={`${isActive("/")} ${isScrolled ? "hover:text-[#0065CA]" : "hover:text-black"} transition ${underlineAnim}`}
+            className={`${isActive("/")} ${isScrolled ? "hover:text-[#0065CA]" : "hover:text-[#0065CA]"} transition ${underlineAnim}`}
           >
             Home
           </Link>
 
           <Link
             to="/services"
-            className={`${isActive("/services")} ${isScrolled ? "hover:text-[#0065CA]" : "hover:text-black"} transition ${underlineAnim}`}
+            className={`${isActive("/services")} ${isScrolled ? "hover:text-[#0065CA]" : "hover:text-[#0065CA]"} transition ${underlineAnim}`}
           >
             Services
           </Link>
 
           <Link
             to="/about"
-            className={`${isActive("/about")} ${isScrolled ? "hover:text-[#0065CA]" : "hover:text-black"} transition ${underlineAnim}`}
+            className={`${isActive("/about")} ${isScrolled ? "hover:text-[#0065CA]" : "hover:text-[#0065CA]"} transition ${underlineAnim}`}
           >
             About Us
           </Link>
 
           <Link
             to="/blog"
-            className={`${isActive("/blog")} ${isScrolled ? "hover:text-[#0065CA]" : "hover:text-black"} transition ${underlineAnim}`}
+            className={`${isActive("/blog")} ${isScrolled ? "hover:text-[#0065CA]" : "hover:text-[#0065CA]"} transition ${underlineAnim}`}
           >
             Blog
           </Link>
