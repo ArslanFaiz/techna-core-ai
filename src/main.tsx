@@ -9,10 +9,12 @@ import About from './pages/about.tsx'
 import Blog from './pages/blog.tsx'
 import { PremiumSection } from './features/index.ts'
 import BlogDetail from './pages/blogDetail.tsx'
+import ScrollToTop from './features/home/scrollToTop.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
+    <ScrollToTop/>
     <Layout>
       <Routes>
         <Route path="/" element={<App />} />

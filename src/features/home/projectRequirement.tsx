@@ -115,9 +115,10 @@ className="relative w-full py-0 bg-gradient-to-r from-indigo-50 via-white to-pur
           <p className="text-gray-700 mb-6">
             Perfect for exploring ideas and getting instant estimates through simple questions.
           </p>
-          <button className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full hover:scale-105 transition-all duration-300">
-            Start Guided Estimate <FaArrowRight />
-          </button>
+          <button className="inline-flex items-center gap-2 px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full hover:scale-105 transition-all duration-300">
+  Start Guided Estimate <FaArrowRight />
+</button>
+
           <p className="mt-3 text-gray-500 text-sm">Takes 2–3 minutes.</p>
         </motion.div>
 
@@ -131,9 +132,10 @@ className="relative w-full py-0 bg-gradient-to-r from-indigo-50 via-white to-pur
           <p className="text-gray-700 mb-6">
             Have detailed requirements? Upload your brief or project document for a tailored estimate.
           </p>
-          <button className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-teal-600 text-white font-semibold rounded-full hover:scale-105 transition-all duration-300">
-            Upload Your Project Brief <FaArrowRight />
-          </button>
+          <button className="inline-flex items-center gap-2 px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-gradient-to-r from-green-500 to-teal-600 text-white font-semibold rounded-full hover:scale-105 transition-all duration-300">
+  Upload Your Project Brief <FaArrowRight />
+</button>
+
           <p className="mt-3 text-gray-500 text-sm">PDF, DOCX, or Paste Text.</p>
         </motion.div>
       </div>

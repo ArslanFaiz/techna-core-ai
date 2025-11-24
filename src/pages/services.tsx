@@ -1,18 +1,8 @@
 // HeroSection.jsx
 import { useEffect, useState } from "react";
 import { FaStar, FaCheckCircle, FaIndustry } from "react-icons/fa";
-import {
-  FaRobot,
-  FaChartLine,
-  FaCamera,
-  FaMicrophone,
-  FaLanguage,
-  FaCogs,
-  FaShieldAlt,
-  FaBullhorn,
-} from "react-icons/fa";
-import ToolsTechnologies from "../features/home/toolsTechnology";
-import { IndusSection, PremiumSection } from "../features";
+
+import { HowWork, PremiumSection } from "../features";
 import { Link, useNavigate } from "react-router-dom";
 import ServicesSection from "../features/home/services";
 const stats = [
@@ -20,20 +10,7 @@ const stats = [
   { id: 2, label: "Successful Deployments", value: 50, icon: <FaCheckCircle className="w-6 h-6 text-white" /> },
   { id: 3, label: "Industries Trusted Us", value: 10, icon: <FaIndustry className="w-6 h-6 text-white" /> },
 ];
-interface Industry {
-  name: string;
-  icon: React.ComponentType<{ size?: string | number; color?: string }>;
-}
-const industries: Industry[] = [
-  { name: "AI Chatbots & Virtual Assistants", icon: FaRobot },
-  { name: "Predictive Analytics & Forecasting", icon: FaChartLine },
-  { name: "Computer Vision & Image Recognition", icon: FaCamera },
-  { name: "Voice-Activated Applications", icon: FaMicrophone },
-  { name: "NLP for Text Analysis & Translation", icon: FaLanguage },
-  { name: "AI Process Automation", icon: FaCogs },
-  { name: "Fraud Detection & Risk Scoring", icon: FaShieldAlt },
-  { name: "AI-Powered Marketing Optimization", icon: FaBullhorn },
-];
+
 const HeroSection = () => {
   const [animate, setAnimate] = useState(false);
   const [counters, setCounters] = useState(stats.map(() => 0));
@@ -66,9 +43,11 @@ const HeroSection = () => {
       {/* Hero Section */}
       <section
         id="hero"
-        className="w-full min-h-screen flex flex-col items-center justify-center bg-cover bg-center px-4 sm:px-6 md:px-12 py-20 text-center"
+        className="relative w-full min-h-screen flex flex-col items-center justify-center
+         bg-cover bg-center px-4 sm:px-6 md:px-12 py-32 text-center"
         style={{ backgroundImage: "url('/assets/services-section.svg')" }}
       >
+        
         {/* Headings */}
         <h1
           className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-small text-white font-poppins transition-all duration-700 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
@@ -120,14 +99,26 @@ const HeroSection = () => {
             </button>
           </Link>
         </div>
+         <div className="w-full h-20 -mt-1">
+        <svg
+          className="absolute bottom-0 left-0 w-full h-40"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="#19242f"
+            fillOpacity="1"
+            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
       </section>
 
       {/* Services Section */}
       <ServicesSection />
-      {/* Industry Section */}
-      <IndusSection industries={industries} />
-      {/* Tools Section */}
-      <ToolsTechnologies />
+      {/* How Work Section */}
+     <HowWork/>
       {/* Premium Section */}
       <PremiumSection />
 

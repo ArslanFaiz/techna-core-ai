@@ -1,142 +1,163 @@
-// aboutUs.tsx
-import { motion } from "framer-motion";
+import { Phone } from "lucide-react";
+import { useRef, useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
+import { AnimatePresence, motion, useInView } from "framer-motion"
 
-const AboutUs = () => {
+export default function About() {
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+
+  const toggleDropdown = (index: number) => {
+    setOpenDropdown(openDropdown === index ? null : index);
+  };
+
+  const dropdownItems = [
+    {
+      title: '01. Our History',
+      content: 'Alter is a Framer template designed to help you build professional, enterprise-ready AI agent websites quickly and efficiently.'
+    },
+    {
+      title: '02. Our Mission',
+      content: 'Our mission is to empower businesses with cutting-edge AI solutions that drive innovation and growth.'
+    },
+    {
+      title: '03. Our Vision',
+      content: 'We envision a future where AI seamlessly integrates with human creativity to unlock unprecedented possibilities.'
+    }
+  ];
+const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   return (
-    <>
-      {/* About Us Section */}
-<section className="w-full bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 py-12 md:py-24 px-4 sm:px-6 md:px-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-slate-200/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-0"></div>
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-16 relative z-10">
-          {/* Left Content */}
-          <div className="flex-1 space-y-8">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <motion.div
-                className="inline-block mb-4"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <span className="text-sm font-semibold text-blue-600 bg-blue-100 px-4 py-2 rounded-full tracking-wide uppercase">
-                  About Us
-                </span>
-              </motion.div>
-              <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 font-poppins leading-tight">
-                Who We Are
-              </h3>
-            </motion.div>
 
-            <motion.div
-              className="space-y-6"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            >
-              <p className="text-lg sm:text-xl text-slate-700 leading-relaxed">
-                Technacore AI is a well-established technology solutions provider specializing in AI integration and full-stack software development.
-                From concept to deployment, we help businesses transform their ideas into scalable, intelligent digital products that drive measurable results.
-              </p>
+ <div className="min-h-screen bg-[#19242f] overflow-hidden">
+  <section className="px-4 sm:px-6 md:px-12" ref={sectionRef}>
+    <div className="max-w-6xl mx-auto">
 
-              <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
-                With years of experience across multiple industries — including finance, healthcare, retail, and logistics — we've built a reputation for delivering projects on time, on budget, and beyond expectations.
-              </p>
-            </motion.div>
-
-            <motion.div
-  className="flex items-center gap-4 pt-4"
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.6, delay: 0.4 }}
->
-  {/* Client logos */}
-  <div className="flex -space-x-3">
-    {["profile01.jpg", "profile02.jpeg", "profile03.jpeg", "profile04.jpeg"].map((img, i) => (
+      {/* Top Button */}
       <motion.div
-        key={i}
-        className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-4 border-white shadow-lg overflow-hidden"
-        whileHover={{ scale: 1.2, zIndex: 10 }}
-        transition={{ type: "spring", stiffness: 300 }}
+        initial={{ opacity: 0, y: 40 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="text-center"
       >
-        <img
-          src={`/assets/${img}`} // make sure images are in public/assets
-          alt={`Client ${i + 1}`}
-          className="w-full h-full object-cover"
-        />
+        <motion.div
+          whileHover={{
+            scale: 1.07,
+            rotate: 1,
+            boxShadow: "0 0 20px rgba(255,255,255,0.25)"
+          }}
+          className="inline-flex items-center justify-center gap-2 bg-gray-800 rounded-full px-4 py-2 shadow-sm mb-6"
+        >
+          <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white">
+            <Phone className="w-4 h-4" />
+          </div>
+          <span className="text-white font-medium">Hey There</span>
+        </motion.div>
       </motion.div>
-    ))}
-  </div>
-  <p className="text-slate-600 font-medium">Trusted by 200+ clients worldwide</p>
-</motion.div>
 
-          </div>
+      {/* Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+        whileHover={{
+          scale: 1.03,
+          textShadow: "0 0 18px rgba(255,255,255,0.6)"
+        }}
+        className="text-center mb-16"
+      >
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-light mb-4 text-white">
+          About Us
+        </h1>
+        <p className="text-gray-300 text-sm sm:text-base md:text-lg">Welcome to Tomorrowbyte!</p>
+      </motion.div>
 
-          {/* Right Content - Mission & Vision Cards */}
-          <div className="flex-1 grid grid-cols-1 gap-8">
+      {/* Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+
+        {/* Left Card (Fade From Left) */}
+        <motion.div
+          initial={{ opacity: 0, x: -70 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          whileHover={{
+            scale: 1.03,
+            rotateX: 3,
+            rotateY: -3,
+            boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
+          }}
+          className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl border border-white/10"
+        >
+          <button className="bg-white/10 px-4 py-2 rounded-full text-sm mb-4 sm:mb-6 flex items-center gap-2 border border-white/20 text-gray-200 hover:shadow-[0_0_25px_rgba(0,123,255,0.6)]">
+            <div className="w-4 h-4 rounded-full border-2 border-blue-400"></div>
+            Who we are
+          </button>
+
+          <h2 className="text-2xl sm:text-3xl font-light mb-4 sm:mb-6 flex items-center gap-2 text-white">
+            <span className="text-blue-400 text-xl sm:text-2xl">📊</span>
+            About our Company
+          </h2>
+
+          <p className="text-gray-300 leading-relaxed text-sm sm:text-base md:text-lg">
+            Let's get acquainted! We're not your average digital marketing agency - we're a team of passionate individuals who eat, sleep, and breathe creativity, innovation, and all things digital. At Tomorrowbyte, we're on a mission to make your online dreams come true, one pixel at a time!
+          </p>
+        </motion.div>
+
+        {/* Right Dropdown Section (Fade From Right) */}
+        <motion.div
+          initial={{ opacity: 0, x: 70 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="space-y-4"
+        >
+          {dropdownItems.map((item, index) => (
             <motion.div
-              className="group relative bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-200"
-              initial={{ opacity: 0, y: 30, rotateX: -15 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              key={index}
+              whileHover={{
+                scale: 1.03,
+                rotateX: 3,
+                rotateY: 3,
+                boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
+              }}
+              className="bg-white/10 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 overflow-hidden transition-all duration-300"
             >
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600"></div>
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-100 rounded-full opacity-50 group-hover:scale-150 transition-transform duration-700"></div>
-              <div className="relative z-10">
-                <motion.div
-                  className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </motion.div>
-                <h5 className="text-2xl font-bold mb-3 text-slate-900 font-poppins">Our Mission</h5>
-                <p className="text-base text-slate-600 leading-relaxed">
-                  To empower businesses with future-ready technology by combining AI-driven intelligence, robust engineering, and user-centric design. Technology should be practical, profitable, and powerful — not just trendy.
-                </p>
-              </div>
-            </motion.div>
+              <motion.button
+                onClick={() => toggleDropdown(index)}
+                whileHover={{
+                  scale: 1.02,
+                  backgroundColor: "rgba(255,255,255,0.25)"
+                }}
+                className="w-full px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between hover:bg-white/20 transition-colors text-white text-sm sm:text-base"
+              >
+                <span className="font-light">{item.title}</span>
+                {openDropdown === index ? (
+                  <ChevronUp className="w-5 h-5" />
+                ) : (
+                  <ChevronDown className="w-5 h-5" />
+                )}
+              </motion.button>
 
-            <motion.div
-              className="group relative bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-200"
-              initial={{ opacity: 0, y: 30, rotateX: -15 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            >
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-600"></div>
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-emerald-100 rounded-full opacity-50 group-hover:scale-150 transition-transform duration-700"></div>
-              <div className="relative z-10">
-                <motion.div
-                  className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                  </svg>
-                </motion.div>
-                <h5 className="text-2xl font-bold mb-3 text-slate-900 font-poppins">Our Vision for the Future</h5>
-                <p className="text-base text-slate-600 leading-relaxed">
-                  We see a future where every business, regardless of size, can leverage AI to gain a competitive edge. Our goal is to make enterprise-level AI and software innovation accessible for all.
-                </p>
-              </div>
+              <AnimatePresence>
+                {openDropdown === index && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.35 }}
+                    className="px-4 sm:px-6 pb-4 text-gray-300 text-sm sm:text-base"
+                  >
+                    {item.content}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
-          </div>
-        </div>
-      </section>
-    </>
+          ))}
+        </motion.div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+
   );
-};
-
-export default AboutUs;
+}

@@ -23,7 +23,21 @@ const Blog = () => {
   const latestBlogs = blogs.slice(0, 6);
 
   return (
-    <div className="w-full" id="hero">
+    <div className=" relative w-full" id="hero">
+      <div className="w-full">
+        <svg
+          className="absolute bottom-0 left-0 w-full h-20"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="#131F46"
+            fillOpacity="1"
+            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
       {/* Hero Section */}
       <div className="w-full relative flex items-center justify-center h-[calc(100vh-80px)] sm:h-[600px]">
         <div
@@ -46,6 +60,7 @@ const Blog = () => {
 
       {/* Blogs + Sidebar Section */}
 <div className="py-16 px-4 sm:px-6 md:px-12 lg:px-20">
+  
   {/* Section Heading */}
   <motion.div
   className="text-center mb-12"

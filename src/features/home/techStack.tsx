@@ -35,7 +35,8 @@ controls.start({
 
 }, [currentIndex, controls]);
 
-return ( <section className="relative w-full h-32 md:h-40 overflow-hidden bg-gray-100 flex items-center">
+return ( 
+<section className="relative w-full h-20 md:h-40 overflow-hidden bg-gray-100 flex items-center">
 <motion.div
 ref={sliderRef}
 className="flex items-center space-x-7 md:space-x-8"
@@ -48,7 +49,8 @@ animate={controls}
          className="w-12 h-12 md:w-16 md:h-16 object-contain"
        />
 ))}
-</motion.div> </section>
+</motion.div> 
+</section>
 );
 };
 

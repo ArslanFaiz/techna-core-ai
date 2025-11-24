@@ -1,131 +1,245 @@
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { FaCheckCircle } from "react-icons/fa";
-import { services } from "../../constants";
+import { Server, ArrowUpRight, Rocket, Network, Target } from 'lucide-react';
+import { motion } from "framer-motion";
+import { FaMobileAlt, FaGlobe, FaDatabase, FaPalette, FaServer } from 'react-icons/fa';
+import { SiReact, SiSwift, SiIos, SiAndroid, SiFlutter, SiCss3, SiHtml5, SiPython, 
+    SiJavascript, SiDocker, SiTypescript, SiNodedotjs, SiPostgresql, SiFigma, SiAdobeillustrator, 
+    SiInvision, SiFramer, SiNotion, SiWebflow, SiShopify, SiWordpress } from 'react-icons/si';
+function Services() {
 
-const containerVariants = { hidden: {}, show: { transition: { staggerChildren: 0.15 } } };
-const serviceVariants = (direction: "left" | "right") => ({
-hidden: { opacity: 0, x: direction === "left" ? -60 : 60 },
-show: { opacity: 1, x: 0, transition: { duration: 0.7 } },
-});
+const services = [
+  {
+    icon: <FaMobileAlt className="w-6 h-6" />,
+    title: 'Mobile Development',
+    description: 'Build scalable, high-performance mobile apps to reach users on the devices they use most.',
+    technologies: [
+      { name: 'React', icon: <SiReact className="w-5 h-5" />, color: 'bg-cyan-400' },
+      { name: 'Swift', icon: <SiSwift className="w-5 h-5" />, color: 'bg-orange-500' },
+      { name: 'iOS', icon: <SiIos className="w-5 h-5" />, color: 'bg-gray-800' },
+      { name: 'Android', icon: <SiAndroid className="w-5 h-5" />, color: 'bg-green-500' },
+      { name: 'Flutter', icon: <SiFlutter className="w-5 h-5" />, color: 'bg-blue-500' }
+    ]
+  },
+  {
+    icon: <FaGlobe className="w-6 h-6" />,
+    title: 'Website Development',
+    description: 'Create fast, responsive, and conversion-focused websites that deliver strong digital presence and user trust.',
+    technologies: [
+      { name: 'CSS', icon: <SiCss3 className="w-5 h-5" />, color: 'bg-blue-500' },
+      { name: 'HTML', icon: <SiHtml5 className="w-5 h-5" />, color: 'bg-orange-600' },
+      { name: 'Python', icon: <SiPython className="w-5 h-5" />, color: 'bg-blue-400' },
+      { name: 'React', icon: <SiReact className="w-5 h-5" />, color: 'bg-cyan-400' },
+      { name: 'JavaScript', icon: <SiJavascript className="w-5 h-5" />, color: 'bg-yellow-400' }
+    ]
+  },
+  {
+    icon: <FaDatabase className="w-6 h-6" />,
+    title: 'SaaS Applications',
+    description: 'Launch powerful SaaS platforms with flexible architecture to serve users at scale and drive recurring revenue.',
+    technologies: [
+      { name: 'Docker', icon: <SiDocker className="w-5 h-5" />, color: 'bg-blue-500' },
+      { name: 'Typescript', icon: <SiTypescript className="w-5 h-5" />, color: 'bg-blue-600' },
+      { name: 'React', icon: <SiReact className="w-5 h-5" />, color: 'bg-cyan-400' },
+      { name: 'Node.js', icon: <SiNodedotjs className="w-5 h-5" />, color: 'bg-green-600' },
+      { name: 'Postgresql', icon: <SiPostgresql className="w-5 h-5" />, color: 'bg-blue-700' }
+    ]
+  },
+  {
+    icon: <FaPalette className="w-6 h-6" />,
+    title: 'UI/UX Design',
+    description: 'Transform complex ideas into intuitive, user-friendly interfaces that boost engagement and retention.',
+    technologies: [
+      { name: 'Figma', icon: <SiFigma className="w-5 h-5" />, color: 'bg-purple-500' },
+      { name: 'Illustrator', icon: <SiAdobeillustrator className="w-5 h-5" />, color: 'bg-orange-700' },
+      { name: 'InVision', icon: <SiInvision className="w-5 h-5" />, color: 'bg-pink-600' },
+      { name: 'Framer', icon: <SiFramer className="w-5 h-5" />, color: 'bg-blue-400' },
+      { name: 'Notion', icon: <SiNotion className="w-5 h-5" />, color: 'bg-gray-800' }
+    ]
+  },
+  {
+    icon: <FaServer className="w-6 h-6" />,
+    title: 'CMS Development',
+    description: 'Control over your website content with a custom or CMS-based solution tailored for easy updates and growth.',
+    technologies: [
+      { name: 'Webflow', icon: <SiWebflow className="w-5 h-5" />, color: 'bg-blue-600' },
+      { name: 'Shopify', icon: <SiShopify className="w-5 h-5" />, color: 'bg-green-600' },
+      { name: 'Ecommerce', icon: <FaGlobe className="w-5 h-5" />, color: 'bg-purple-600' },
+      { name: 'Framer', icon: <SiFramer className="w-5 h-5" />, color: 'bg-blue-400' },
+      { name: 'Wordpress', icon: <SiWordpress className="w-5 h-5" />, color: 'bg-blue-800' }
+    ]
+  }
+];
 
-const ServicesSection = () => {
-const sectionRef = useRef<HTMLDivElement>(null);
 
-return ( <section ref={sectionRef} className="relative w-full bg-white font-poppins overflow-hidden py-20 md:py-10">
-{/* HEADER */}
-<motion.div
-className="text-center max-w-2xl mx-auto px-6 md:px-0 mb-10"
-initial={{ opacity: 0, y: -20 }}
-whileInView={{ opacity: 1, y: 0 }}
-viewport={{ once: true }}
-transition={{ duration: 0.7 }}
-> <p className="text-indigo-600 font-semibold tracking-widest uppercase text-sm md:text-base">What We Do</p> <h2 className="text-4xl md:text-5xl font-extrabold mt-2 relative inline-block">
-Our Services <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-28 md:w-36 h-1.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full shadow-md"></span> </h2> <p className="mt-4 text-gray-600 text-base md:text-lg leading-relaxed">
-We deliver modern, high-quality solutions designed to help your business grow. </p>
-</motion.div>
+  const testimonials = [
+    {
+      icon: <Rocket className="w-8 h-8" />,
+      title: 'Proven Track Record',
+      description: 'We have built a reputation as a trusted and reliable partner in achieving business success.'
+    },
+    {
+      icon: <Network className="w-8 h-8" />,
+      title: 'Tailored Solutions',
+      description: 'We offer personalized solutions tailored to your specific goals, audience, and industry.'
+    },
+    {
+      icon: <Target className="w-8 h-8" />,
+      title: 'Quality Assurance',
+      description: 'Your success is our priority. We prioritize understanding your business goals.'
+    }
+  ];
 
+  return (
 
-  {/* SERVICES */}
-  <motion.div
-    className="max-w-6xl mx-auto px-6 flex flex-col gap-16 relative"
-    variants={containerVariants}
-    initial="hidden"
-    whileInView="show"
-    viewport={{ once: true }}
-  >
-    {/* Timeline line */}
-    <div className="hidden md:flex absolute top-0 left-1/2 -translate-x-1/2 flex-col items-center">
-      <div className="w-1 h-full bg-gray-300/30 rounded-full relative overflow-hidden">
-        <motion.div
-          className="absolute top-0 w-1 bg-gradient-to-b from-indigo-400 via-purple-400 to-pink-400 rounded-full shadow-lg shadow-indigo-300/50 origin-top"
-          style={{ height: "100%" }}
-          initial={{ scaleY: 0 }}
-          whileInView={{ scaleY: 1 }}
-          viewport={{ once: false, margin: "-10% 0px -10% 0px" }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-        />
+<div className="relative min-h-screen bg-[#19242f]">
+ <section className="px-4 sm:px-6 lg:px-8">
+   <div className="w-full">
+        <svg
+          className="absolute bottom-0 left-0 w-full h-40"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="#f2f3f6"
+            fillOpacity="1"
+            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
       </div>
+  <div className="max-w-7xl mx-auto">
+    {/* Header */}
+    <div className="text-center mb-16">
+      <div className="inline-flex items-center gap-2 bg-gray-800 rounded-full px-4 py-2 shadow-sm mb-6">
+        <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white">
+          <Server className="w-4 h-4" />
+        </div>
+        <span className="text-white font-medium">Services</span>
+      </div>
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-4 text-white">
+        Discover Our Services
+      </h1>
+      <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+        Custom-built digital solutions from apps to SaaS, designed to move your business forward
+      </p>
     </div>
-    <div className="hidden md:flex absolute top-0 left-1/2 -translate-x-1/2 w-1 h-full bg-gray-300/50 rounded-full z-0" />
 
-    {services.map((service, idx) => {
-      const isLeft = idx % 2 === 0;
-      const itemRef = useRef<HTMLDivElement>(null);
-      const inView = useInView(itemRef, { once: false, margin: "-50% 0px -50% 0px" });
-
-      return (
-        <motion.div key={service.id} ref={itemRef} variants={serviceVariants(isLeft ? "left" : "right")} className="relative flex items-start gap-6 md:gap-12">
-          {/* Timeline Ball */}
-          <div className="hidden md:flex absolute top-0 left-1/2 -translate-x-1/2 flex-col items-center z-10">
+    {/* Services Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+      {services.map((service, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: index * 0.15 }}
+          className="bg-[#2b3644] rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 relative group"
+        >
+          <div className="flex justify-between items-start mb-6">
+            {/* Floating Card Icon */}
             <motion.div
-              className={`w-4 h-4 rounded-full mb-16 shadow-lg shadow-indigo-400/50 transition-colors duration-500 ${
-                inView ? "bg-indigo-500 animate-pulse-glow" : "bg-gray-400"
-              }`}
-              animate={{
-                scale: inView ? [1, 1.5, 1] : 1,
-                boxShadow: inView
-                  ? "0 0 20px 5px rgba(99, 102, 241, 0.6)"
-                  : "0 0 0px 0px rgba(0,0,0,0)",
-              }}
-              transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
-            />
+              className="w-12 h-12 bg-[#3a4758] rounded-xl flex items-center justify-center text-white"
+              animate={{ y: [0, -6, 0] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            >
+              {service.icon}
+            </motion.div>
+
+            <ArrowUpRight className="w-6 h-6 text-gray-400 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
           </div>
 
-          <div className={`flex-1 flex ${isLeft ? "justify-start" : "justify-end"}`}>
-            <div className={`flex flex-col items-${isLeft ? "start" : "end"} space-y-4 max-w-md`}>
-              {/* Floating Icon */}
+          <h3 className="text-2xl font-semibold mb-4 text-white">{service.title}</h3>
+          <p className="text-gray-300 mb-8 leading-relaxed">{service.description}</p>
+
+          {/* Tech Icons */}
+          <div className="flex flex-wrap gap-4 md:gap-6">
+            {service.technologies.map((tech, techIndex) => (
               <motion.div
-                className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-full bg-gradient-to-tr from-indigo-200 via-purple-200 to-pink-200 text-indigo-600 text-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
-                animate={{ y: ["0%", "-15%", "0%"] }}
-                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                key={techIndex}
+                initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                whileHover={{
+                  scale: 1.2,
+                  y: -6,
+                  rotate: [0, 5, -5, 0], // slight wobble on hover
+                  transition: { type: "spring", stiffness: 300, damping: 20 },
+                }}
+                transition={{ duration: 0.5, delay: techIndex * 0.1 }}
+                className="flex flex-col items-center gap-2 cursor-pointer"
               >
-                <FaCheckCircle className="w-6 h-6 md:w-8 md:h-8" />
+                <div
+                  className={`w-12 h-12 ${tech.color} rounded-lg flex items-center justify-center text-white shadow-md text-xl`}
+                >
+                  {tech.icon}
+                </div>
+                <span className="text-xs text-gray-200 font-medium">{tech.name}</span>
               </motion.div>
-
-              {/* Title */}
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 transition-all duration-300">{service.title}</h3>
-
-              {/* Description */}
-              <p className="text-gray-700 text-sm md:text-base">{service.description}</p>
-
-              {/* Features */}
-              <ul className="space-y-2">
-                {service.features.map((feature, i) => (
-                  <motion.li
-                    key={i}
-                    className="flex items-center gap-2 md:gap-3 text-gray-700 font-medium hover:text-indigo-600 transition-colors duration-300"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
-                  >
-                    <FaCheckCircle className="w-4 h-4 md:w-5 md:h-5 text-indigo-500 flex-shrink-0 animate-pulse-slow" />
-                    <span>{feature}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
+            ))}
           </div>
         </motion.div>
-      );
-    })}
-  </motion.div>
-
-  {/* Premium Background Blobs */}
-  <motion.div
-    className="absolute -top-32 -left-32 w-80 h-80 md:w-96 md:h-96 bg-indigo-300/20 rounded-full blur-[160px] pointer-events-none"
-    animate={{ rotate: 15, y: [0, 15, 0], x: [0, 10, 0] }}
-    transition={{ repeat: Infinity, duration: 20, ease: "easeInOut" }}
-  />
-  <motion.div
-    className="absolute -bottom-32 -right-32 w-80 h-80 md:w-96 md:h-96 bg-pink-300/20 rounded-full blur-[160px] pointer-events-none"
-    animate={{ rotate: -15, y: [0, -15, 0], x: [0, -10, 0] }}
-    transition={{ repeat: Infinity, duration: 25, ease: "easeInOut" }}
-  />
+      ))}
+    </div>
+  </div>
 </section>
 
-);
-};
 
-export default ServicesSection;
+  {/* Testimonials Section */}
+  <section className="py-16 px-4 sm:px-6 lg:px-8">
+  <div className="max-w-7xl mx-auto">
+    {/* Header */}
+    <div className="text-center mb-16">
+      <div className="inline-flex items-center gap-2 bg-gray-800 rounded-full px-4 py-2 shadow-sm mb-6">
+        <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white">
+          <Target className="w-4 h-4" />
+        </div>
+        <span className="text-white font-medium">Testimonials</span>
+      </div>
+      <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-4 text-white">
+        What Our Users Say
+      </h2>
+      <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+        Hear from businesses who've transformed their workflows with our solutions
+      </p>
+    </div>
+
+    {/* Testimonials Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {testimonials.map((testimonial, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: index * 0.15 }}
+          whileHover={{
+            scale: 1.05,
+            transition: { duration: 0.3, type: "spring", stiffness: 300, damping: 20 },
+          }}
+          className="relative overflow-hidden bg-[#2b3644] rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group"
+        >
+          {/* Floating Icon */}
+          <motion.div
+            className="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-sm relative z-10"
+            animate={{ y: [0, -8, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          >
+            {testimonial.icon}
+          </motion.div>
+
+          <h3 className="text-2xl font-semibold mb-4 text-white relative z-10">{testimonial.title}</h3>
+          <p className="text-gray-300 leading-relaxed relative z-10">{testimonial.description}</p>
+
+          {/* Shine effect overlay */}
+          <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-0 group-hover:opacity-30 bg-gradient-to-r from-white/30 via-white/10 to-white/30 transform -rotate-12 transition-all duration-500"></div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
+</div>
+
+  );
+}
+
+export default Services;

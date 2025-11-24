@@ -13,7 +13,9 @@ if (element) element.scrollIntoView({ behavior: "smooth" });
 };
 
 export default function Footer() {
-return ( <footer className="bg-[#0a0a0a] text-gray-300 font-poppins"> <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-14">
+return ( 
+<footer className="bg-[#131F46] text-gray-300 font-poppins"> 
+<div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14">
 {/* Brand & Description */}
 <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
 <img

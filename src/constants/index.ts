@@ -181,3 +181,52 @@ export const serviceses= [
     colorTo: "to-red-500",
   },
 ];
+export const steps = [
+{
+step: "01",
+title: "Discovery Phase",
+description:
+"During the initial phase, we delve deep into understanding your business objectives, target audience, and project requirements. This involves comprehensive research, stakeholder interviews, and competitive analysis to lay the foundation for a successful project.",
+},
+{
+step: "02",
+title: "Strategy Development",
+description:
+"With insights gathered from the discovery phase, we develop a comprehensive strategy that aligns with your business goals. This includes creating user personas, defining project scope, establishing timelines, and outlining the technical architecture that will drive your project forward.",
+},
+{
+step: "03",
+title: "Implementation and Execution",
+description:
+"Our experienced team brings the strategy to life through careful implementation. We follow agile development methodologies, maintain regular communication throughout the process, and ensure quality through rigorous testing and iterative improvements.",
+},
+{
+step: "04",
+title: "Monitoring and Optimization",
+description:
+"Post-launch, we continuously monitor performance metrics and user feedback to identify opportunities for enhancement. Our commitment extends beyond delivery, ensuring your digital solution evolves with your business needs and maintains peak performance.",
+},
+];
+
+export const faqs = [
+    {
+      question: "What services do you offer?",
+      answer: "We specialize in mobile app design and development, web app design and development, desktop app solutions, UI/UX design, and SaaS product design and development. Our team is dedicated to delivering tailored digital solutions to meet your business needs."
+    },
+    {
+      question: "How long does it take to complete a project?",
+      answer: "Project timelines vary depending on the scope and complexity. Typically, a standard web application takes 8-12 weeks, while mobile apps can take 10-16 weeks. We'll provide a detailed timeline during our initial consultation."
+    },
+    {
+      question: "Do you support projects after delivery?",
+      answer: "Yes, we offer comprehensive post-launch support including bug fixes, updates, maintenance, and feature enhancements. We provide various support packages tailored to your needs."
+    },
+    {
+      question: "Can you work within my budget?",
+      answer: "We work with various budget ranges and can customize solutions to fit your financial constraints. During our consultation, we'll discuss your budget and find the best approach to deliver value within your means."
+    },
+    {
+      question: "What makes your team different?",
+      answer: "Our team combines technical expertise with creative innovation. We focus on understanding your business goals, maintaining transparent communication, and delivering solutions that drive real results. We're committed to long-term partnerships, not just project completion."
+    }
+  ];
