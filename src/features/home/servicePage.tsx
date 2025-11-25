@@ -1,49 +1,16 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { FaCheckCircle } from "react-icons/fa";
-import { serviceses } from "../../constants";
 
-const fadeInLeft = {
-hidden: { opacity: 0, x: -60 },
-show: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-};
-const fadeInRight = {
-hidden: { opacity: 0, x: 60 },
-show: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-};
+import { services } from "../../constants";
 
-const AnimatedFeature = ({ icon: Icon, text }: { icon: React.ElementType; text: string }) => (
-<motion.div
-className="flex items-center gap-3 mt-4 text-white"
-initial={{ opacity: 0, x: -10 }}
-whileInView={{ opacity: 1, x: 0 }}
-transition={{ duration: 0.6 }}
-
->
-
-<motion.div
-
-  className="w-8 h-8 flex items-center justify-center rounded-full bg-cyan-500 text-white shadow-lg"
-  animate={{ y: [0, -8, 0], rotate: [0, 5, -5, 0], scale: [1, 1.25, 1] }}
-  transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
->
-  <Icon className="w-5 h-5" />
-</motion.div>
-<span className="font-medium text-white hover:text-cyan-400 transition-colors">{text}</span>
-
-
-</motion.div>
-);
-
-const ServicesSection = () => (
-
-  <section className="relative w-full pt-0 pb-10 bg-[#04294E] overflow-hidden">
-    <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+const ServicesSection = () => {
+  return (
+    <section className="w-full py-28 bg-[#04294E] text-gray-900 font-poppins">
+      {/* ================= HEADER ================= */}
       <motion.h2
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-4xl md:text-5xl font-extrabold mb-6 text-white hover:scale-105 transition-transform duration-500"
+        className="text-4xl md:text-5xl text-center font-extrabold mb-6 text-white hover:scale-105 transition-transform duration-500"
       >
         Our Services
       </motion.h2>
@@ -51,53 +18,63 @@ const ServicesSection = () => (
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.8 }}
-        className="text-gray-300 max-w-3xl mx-auto mb-20 text-lg"
+        className="text-gray-300 text-center max-w-3xl mx-auto mb-20 text-lg"
       >
         We provide scalable, secure, and innovative solutions that transform ideas into high-performance products.
       </motion.p>
-  <div className="space-y-10">
-  {serviceses.map((service, idx) => (
-    <motion.div
-      key={service.id}
-      className={`flex flex-row-reverse items-center gap-4 md:flex-row md:items-center md:justify-evenly md:gap-12 ${
-        idx % 2 === 0 ? "" : "md:flex-row-reverse"
-      }`}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true }}
-    >
-      {/* Icon */}
-      <motion.div
-        className="flex-shrink-0 p-4 md:p-10 rounded-3xl bg-black/40 backdrop-blur-md border border-cyan-500/50 shadow-cyan-600/40 shadow-lg cursor-pointer hover:scale-105 hover:shadow-cyan-500/50 transition-all duration-300 w-fit h-fit"
-        animate={{ y: [0, -12, 0], rotate: [0, 6, -6, 0], scale: [1, 1.05, 1] }}
-        transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-      >
-        <service.Icon className="w-8 h-8 md:w-16 md:h-16 text-cyan-400" />
-      </motion.div>
 
-      {/* Text + Features */}
-      <motion.div
-        className="flex-1 text-left md:text-left md:max-w-xl"
-        variants={idx % 2 === 0 ? fadeInLeft : fadeInRight}
-      >
-        <h3 className="text-2xl md:text-3xl font-extrabold text-white hover:text-cyan-400 transition-colors duration-300 hover:scale-105">
-          {service.title}
-        </h3>
+      {/* ================= SERVICES GRID ================= */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        {services.map((service, idx) => (
+          <motion.div
+            key={service.id}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.6, delay: idx * 0.15 },
+            }}
+            viewport={{ once: true, amount: 0.3 }}
+             className="bg-white shadow-[0_6px_25px_rgba(0,0,0,0.07)] 
+             hover:shadow-[0_10px_40px_rgba(0,0,0,0.1)]
+             transition-all duration-500 rounded-3xl p-10 border border-gray-200 
+             group hover:border-indigo-600  /* <-- updated */
+             hover:-translate-y-2 min-h-[470px] flex flex-col justify-between"
+          >
+            {/* Card Content */}
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition">
+                {service.title}
+              </h3>
 
-        <p className="mt-4 text-gray-300">{service.description}</p>
+              <p className="text-gray-600 text-base leading-relaxed">
+                {service.description}
+              </p>
 
-        <div className="mt-6 flex flex-col items-start space-y-3 flex-wrap gap-x-2">
-          {service.features.map((f, i) => (
-            <AnimatedFeature key={i} icon={FaCheckCircle} text={f} />
-          ))}
-        </div>
-      </motion.div>
-    </motion.div>
-  ))}
-</div>
+              {/* Features List */}
+              <ul className="flex flex-col gap-3 mt-6">
+                {service.features.map((feature, i) => (
+                  <li
+                    key={i}
+                    className="flex items-center gap-3 text-gray-700 font-medium"
+                  >
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-</div>
-  </section>
-);
+            <button
+              className="mt-8 px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full 
+                         shadow-md hover:bg-indigo-700 transition duration-300"
+            >
+              Learn More
+            </button>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default ServicesSection;

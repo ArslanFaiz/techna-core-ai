@@ -39,7 +39,7 @@ const Hero = () => {
       <section
         id="hero"
         className="w-full min-h-screen flex flex-col items-center justify-center
-bg-cover bg-center px-4 sm:px-6 md:px-12 py-35
+bg-cover bg-center px-4 sm:px-6 md:px-12 py-15
 text-center relative"
         style={{ backgroundImage: "url('/assets/home-banner-img.svg')" }}
       >
@@ -109,7 +109,7 @@ text-center relative"
         </button>
 
         {/* Hero Section Bottom Curve */}
-        <div className="w-full">
+        {/* <div className="w-full">
           <svg
             className="absolute bottom-0 left-0 w-full h-40"
             viewBox="0 0 1440 320"
@@ -122,7 +122,7 @@ text-center relative"
               d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             ></path>
           </svg>
-        </div>
+        </div> */}
 
       </section>
 

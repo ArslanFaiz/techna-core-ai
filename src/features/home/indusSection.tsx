@@ -1,112 +1,59 @@
-// IndusSection.tsx
-import { motion } from "framer-motion";
+import { Stethoscope, DollarSign, ShoppingBag, Settings } from 'lucide-react';
 
-interface Industry {
-  name: string;
-  icon: React.ComponentType;
-}
+function Industries() {
+  const industries = [
+    {
+      icon: Stethoscope,
+      title: 'Healthcare',
+      description: 'Leverage AI to improve patient outcomes, streamline administrative tasks, and personalize treatment plans.'
+    },
+    {
+      icon: DollarSign,
+      title: 'Finance',
+      description: 'Implement AI to detect fraud, enhance risk management, and improve financial forecasting.'
+    },
+    {
+      icon: ShoppingBag,
+      title: 'Retail',
+      description: 'Use AI to optimize inventory, personalize shopping experiences, and predict consumer trends.'
+    },
+    {
+      icon: Settings,
+      title: 'Manufacturing',
+      description: 'Apply AI for predictive maintenance, production optimization, and quality control.'
+    }
+  ];
 
-interface IndusSectionProps {
-  industries: Industry[];
-}
-
-const IndusSection: React.FC<IndusSectionProps> = ({ industries }) => {
   return (
- <section className="py-10 md:py-24 px-4 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+    <section className="px-4 sm:px-6 lg:px-12 py-20">
+      <div className="max-w-7xl mx-auto">
+        <div className="border border-gray-700 rounded-3xl p-8 sm:p-12 lg:p-16 bg-gradient-to-br from-gray-900/50 to-blue-900/20 backdrop-blur-sm">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-16">
+            <span className="text-blue-400">Industries</span> We Serve
+          </h2>
 
-      {/* Soft Background Lights */}
-      <div className="absolute top-10 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl animate-pulse-slow"></div>
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-purple-400/20 rounded-full blur-3xl animate-pulse-slow"></div>
-
-      <div className="max-w-7xl mx-auto text-center relative z-10">
-
-        {/* Section Title */}
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 drop-shadow-md"
-        >
-          Industries We Serve
-        </motion.h2>
-
-        {/* Section Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          className="text-gray-600 dark:text-gray-300 text-lg md:text-xl mb-16 max-w-3xl mx-auto"
-        >
-          Our cross-industry expertise means we understand your challenges and can
-          tailor solutions that fit your world.
-        </motion.p>
-
-        {/* Grid */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.15 } }
-          }}
-        >
-          {industries.map((industry, i) => {
-            const Icon = industry.icon;
-
-            return (
-              <motion.div
-                key={i}
-                variants={{
-                  hidden: { opacity: 0, y: 60, scale: 0.9 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    transition: { duration: 0.6 }
-                  }
-                }}
-                whileHover={{
-                  scale: 1.06,
-                  boxShadow: "0px 10px 35px rgba(0,0,0,0.15)"
-                }}
-                className="bg-white/70 dark:bg-gray-800/60 backdrop-blur-xl p-8 rounded-3xl shadow-xl border border-white/20 dark:border-gray-700/40 transition-all duration-300 cursor-pointer hover:-translate-y-2"
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+            {industries.map((industry, index) => (
+              <div
+                key={index}
+                className="group hover:transform hover:scale-105 transition-all duration-300"
               >
-                {/* Icon */}
-                <motion.div
-                  className="text-indigo-600 dark:text-indigo-400 mb-6 text-6xl"
-                  animate={{
-                    y: [0, -6, 0],
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    duration: 2.2,
-                    ease: "easeInOut",
-                    delay: i * 0.15
-                  }}
-                  whileHover={{ scale: 1.15 }}
-                >
-                  <Icon />
-                </motion.div>
-
-                {/* Title */}
-                <motion.h3
-                  className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white leading-snug"
-                  whileHover={{ y: -3 }}
-                >
-                  {industry.name}
-                </motion.h3>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+                <div className="mb-6">
+                  <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
+                    <industry.icon className="w-8 h-8 text-blue-400" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold mb-4">{industry.title}</h3>
+                <p className="text-gray-400 leading-relaxed">
+                  {industry.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
-};
+}
 
-export default IndusSection;
+export default Industries;

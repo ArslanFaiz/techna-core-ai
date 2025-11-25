@@ -1,120 +1,121 @@
-import { motion } from "framer-motion";
+import { Code2, Server, Database } from 'lucide-react';
 import {
-  FaReact,
-  FaVuejs,
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaNodeJs,
-  FaPython,
-} from "react-icons/fa";
-import {
+  SiReact,
+  SiVuedotjs,
   SiNextdotjs,
   SiTypescript,
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
+  SiTailwindcss,
+  SiNodedotjs,
   SiDjango,
-  SiRubyonrails,
-  SiNestjs,
   SiFlask,
+  SiNestjs,
+  SiPython,
+  SiRubyonrails,
+  SiExpress,
+  SiFastapi,
+  SiPostgresql,
+  SiMongodb,
+  SiFirebase,
+  SiRedis,
+  SiGraphql,
+  SiMysql,
+  SiSupabase
 } from "react-icons/si";
 
-const tools = {
-  frontend: [
-    { icon: FaVuejs, title: "Vue JS" },
-    { icon: SiNextdotjs, title: "Next JS" },
-    { icon: FaReact, title: "React JS" },
-    { icon: SiTypescript, title: "TypeScript" },
-    { icon: FaJs, title: "JavaScript" },
-    { icon: FaHtml5, title: "HTML 5" },
-    { icon: FaCss3Alt, title: "CSS 3" },
-  ],
-  backend: [
-    { icon: SiDjango, title: "Django" },
-    { icon: SiRubyonrails, title: "Ruby on Rails" },
-    { icon: SiNestjs, title: "Nest JS" },
-    { icon: FaNodeJs, title: "Node JS" },
-    { icon: FaPython, title: "Python" },
-    { icon: SiFlask, title: "Flask" },
-  ],
-};
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
 
 const ToolsTechSection = () => {
-  return (<section className="w-full py-20 md:py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden"> <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-    <motion.h2
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      className="text-4xl md:text-5xl font-extrabold mb-6
-bg-gradient-to-r from-blue-600 via-purple-600 to-black bg-clip-text text-transparent"
-    >
-      Tools & Technologies
-    </motion.h2>
-    <motion.p
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ delay: 0.3, duration: 0.8 }}
-      className="text-gray-600 max-w-3xl mx-auto mb-16 md:mb-10 text-lg"
-    >
-      We leverage modern technologies to build high-performance, scalable, and future-ready solutions.
-    </motion.p>
+const frontendTech = [
+{ name: 'React JS', icon: <SiReact className="w-10 h-10 text-blue-500" /> },
+{ name: 'Vue JS', icon: <SiVuedotjs className="w-10 h-10 text-green-500" /> },
+{ name: 'Next JS', icon: <SiNextdotjs className="w-10 h-10 text-gray-900" /> },
+{ name: 'TypeScript', icon: <SiTypescript className="w-10 h-10 text-blue-700" /> },
+{ name: 'JavaScript', icon: <SiJavascript className="w-10 h-10 text-yellow-400" /> },
+{ name: 'HTML 5', icon: <SiHtml5 className="w-10 h-10 text-orange-500" /> },
+{ name: 'CSS 3', icon: <SiCss3 className="w-10 h-10 text-blue-600" /> },
+{ name: 'Tailwind', icon: <SiTailwindcss className="w-10 h-10 text-teal-400" /> },
+];
 
-    {Object.entries(tools).map(([category, items]) => (
-      <motion.div key={category} initial="hidden" whileInView="show" viewport={{ once: true }}>
-        <motion.h3
-          variants={fadeInUp}
-          className="text-2xl md:text-3xl font-semibold mb-10 text-gray-900 capitalize"
-        >
-          {category}
-        </motion.h3>
-        <motion.div
-          className="flex flex-wrap justify-center gap-8 md:gap-12"
-          variants={{
-            show: { transition: { staggerChildren: 0.12 } },
-          }}
-        >
-          {items.map((tool, idx) => (
-            <motion.div
-              key={idx}
-              variants={fadeInUp}
-              className="relative flex flex-col items-center justify-center gap-3 p-5 rounded-full
-                         bg-white/40 backdrop-blur-md shadow-lg
-                         hover:shadow-[0_20px_40px_rgba(0,101,202,0.25)]
-                         transition-all duration-500 cursor-default"
-            >
-              {/* Floating Icon */}
-              <motion.div
-                animate={{ y: ["0%", "-6%", "0%"], rotate: [0, 5, -5, 0] }}
-                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-                className="p-4 rounded-full bg-gradient-to-tr from-blue-100 to-purple-200 text-[#0065ca] text-4xl md:text-5xl shadow-md"
-              >
-                <tool.icon />
-              </motion.div>
-              <p className="text-sm md:text-base font-semibold text-gray-800">{tool.title}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </motion.div>
-    ))}
+const backendTech = [
+{ name: 'Node JS', icon: <SiNodedotjs className="w-10 h-10 text-green-600" /> },
+{ name: 'Django', icon: <SiDjango className="w-10 h-10 text-green-700" /> },
+{ name: 'Flask', icon: <SiFlask className="w-10 h-10 text-gray-600" /> },
+{ name: 'Nest JS', icon: <SiNestjs className="w-10 h-10 text-red-600" /> },
+{ name: 'Python', icon: <SiPython className="w-10 h-10 text-yellow-500" /> },
+{ name: 'Ruby on Rails', icon: <SiRubyonrails className="w-10 h-10 text-red-500" /> },
+{ name: 'Express', icon: <SiExpress className="w-10 h-10 text-gray-700" /> },
+{ name: 'FastAPI', icon: <SiFastapi className="w-10 h-10 text-blue-400" /> },
+];
+
+const dbTech = [
+{ name: 'PostgreSQL', icon: <SiPostgresql className="w-10 h-10 text-blue-600" /> },
+{ name: 'MongoDB', icon: <SiMongodb className="w-10 h-10 text-green-600" /> },
+{ name: 'Firebase', icon: <SiFirebase className="w-10 h-10 text-yellow-400" /> },
+{ name: 'Redis', icon: <SiRedis className="w-10 h-10 text-red-500" /> },
+{ name: 'GraphQL', icon: <SiGraphql className="w-10 h-10 text-pink-500" /> },
+{ name: 'REST API', icon: <Code2 className="w-10 h-10 text-gray-500" /> },
+{ name: 'Supabase', icon: <SiSupabase className="w-10 h-10 text-blue-400" /> },
+{ name: 'MySQL', icon: <SiMysql className="w-10 h-10 text-blue-500" /> },
+];
+
+const renderTechGrid = (techArray: {name: string, icon: React.ReactNode }[]) => ( <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+{techArray.map((tech, idx) => ( <div
+       key={idx}
+       className="group relative p-6 rounded-2xl border border-gray-200 bg-white
+                  hover:border-blue-500 transition-all duration-300
+                  hover:shadow-lg hover:shadow-blue-200"
+     > <div className="relative z-10 flex flex-col items-center text-center"> <span className="mb-3 transform group-hover:scale-125 transition-transform duration-300">
+{tech.icon} </span> <p className="font-semibold text-gray-800 group-hover:text-blue-500 transition-colors">
+{tech.name} </p> </div> </div>
+))} </div>
+);
+
+return ( <section className="px-4 sm:px-6 lg:px-12 py-20 relative">
+<div className="absolute inset-0 opacity-20" style={{
+backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(6, 182, 212, 0.1) 1px, transparent 0)',
+backgroundSize: '50px 50px'
+}} />
+
+  <div className="max-w-7xl mx-auto relative z-10">
+    <div className="text-center mb-20">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+        Tools &<span className="text-blue-400"> Technologies</span>
+      </h2>
+      <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+        We use top-notch modern technologies to deliver high-performance, scalable, and future-ready digital solutions.
+      </p>
+    </div>
+
+    <div className="mb-20">
+      <div className="flex items-center justify-center mb-12">
+        <Code2 className="w-6 h-6 text-blue-400 mr-3" />
+        <h3 className="text-2xl font-bold">Frontend Technologies</h3>
+      </div>
+      {renderTechGrid(frontendTech)}
+    </div>
+
+    <div className="mb-20">
+      <div className="flex items-center justify-center mb-12">
+        <Server className="w-6 h-6 text-blue-400 mr-3" />
+        <h3 className="text-2xl font-bold">Backend Technologies</h3>
+      </div>
+      {renderTechGrid(backendTech)}
+    </div>
+
+    <div>
+      <div className="flex items-center justify-center mb-12">
+        <Database className="w-6 h-6 text-blue-400 mr-3" />
+        <h3 className="text-2xl font-bold">Databases & Tools</h3>
+      </div>
+      {renderTechGrid(dbTech)}
+    </div>
   </div>
+</section>
 
-    {/* Background Glowing Blobs */}
-    <motion.div
-      className="absolute -top-40 -left-32 w-96 h-96 bg-blue-200/20 rounded-full blur-[180px] pointer-events-none"
-      animate={{ rotate: [0, 15, 0], y: [0, 20, 0], x: [0, 10, 0] }}
-      transition={{ repeat: Infinity, duration: 22, ease: "easeInOut" }}
-    />
-    <motion.div
-      className="absolute -bottom-40 -right-32 w-96 h-96 bg-purple-200/20 rounded-full blur-[180px] pointer-events-none"
-      animate={{ rotate: [0, -15, 0], y: [0, -20, 0], x: [0, -10, 0] }}
-      transition={{ repeat: Infinity, duration: 26, ease: "easeInOut" }}
-    />
-  </section>
 
-  );
+);
 };
 
 export default ToolsTechSection;
