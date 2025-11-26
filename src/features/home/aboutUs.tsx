@@ -31,11 +31,13 @@ function App() {
                 </div>
 
                 <div className="relative flex justify-center lg:justify-end">
-                  <svg className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96" viewBox="0 0 400 300" fill="none">
-                    <path d="M50 150 L200 50 L350 150 L200 250 Z" stroke="#0ea5e9" strokeWidth="3" fill="none" className="animate-pulse" />
-                    <path d="M100 150 L200 90 L300 150 L200 210 Z" stroke="#0ea5e9" strokeWidth="2" fill="none" opacity="0.6" />
-                  </svg>
-                </div>
+  <img
+    src="/assets/tech_logo.png"   // ← apni image ka path lagao
+    alt="Animated Shape"
+    className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 animate-pulse"
+  />
+</div>
+
               </div>
             </div>
           </section>

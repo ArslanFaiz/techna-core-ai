@@ -85,12 +85,29 @@ For innovative solutions, strategies to operational excellence, we provide exper
       <h3 className="text-lg font-semibold mb-4 text-center sm:text-left">News Letter</h3>
       <div className="flex flex-col space-y-4">
         <input
-          type="email"
-          placeholder="Enter Your Email Address"
-          className="w-full px-4 py-3 rounded-md bg-[#111] border border-gray-700 text-gray-200 focus:ring-2 focus:ring-gray-500 outline-none"
-        />
-        <button className="px-6 py-3 rounded-md bg-white text-black font-medium hover:bg-gray-300 transition-all">
-          Submit
+  type="email"
+  placeholder="Enter Your Email Address"
+  className="
+    w-full px-4 py-3 rounded-md 
+    bg-white 
+    border border-gray-700 
+    text-black 
+    placeholder-gray-400
+    focus:ring-2 focus:ring-black 
+    outline-none
+  "
+/>
+
+<button
+  className="
+    px-6 py-3 rounded-md 
+    bg-[#0050A0] 
+    text-white font-medium 
+    hover:bg-[#003F80] 
+    transition-all
+    cursor-pointer
+  "
+>          Submit
         </button>
       </div>
     </motion.div>

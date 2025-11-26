@@ -39,11 +39,11 @@ const Hero = () => {
         className="w-full min-h-screen flex flex-col items-center justify-center
         bg-cover bg-center px-4 sm:px-6 md:px-12 py-15
         text-center relative overflow-hidden"
-        // style={{ backgroundImage: "url('/assets/ai_web.mp4')" }}
+        style={{ backgroundImage: "url('/assets/home-banner-img.svg')" }}
       >
 
         {/* Background Video */}
-        <video
+        {/* <video
           autoPlay
           loop
           muted
@@ -51,7 +51,7 @@ const Hero = () => {
           className="absolute inset-0 w-full h-full object-cover z-[-1]"
         >
           <source src="/assets/ai_web.mp4" type="video/mp4" />
-        </video>
+        </video> */}
 
         {/* Headings */}
         <h1
