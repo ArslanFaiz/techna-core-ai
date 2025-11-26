@@ -18,7 +18,9 @@ const Header = () => {
 
 const isActive = (path: string) => {
   const base = "underline underline-offset-4 font-semibold";
-
+ if (location.pathname.startsWith("/blog/")) {
+    return "text-[#0065CA]";
+  }
   if (location.pathname === path) {
     return "text-[#0065CA] " + base; // always blue
   }

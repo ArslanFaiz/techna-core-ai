@@ -26,7 +26,7 @@ function App() {
                     with <span className="text-blue-400">AI-Driven</span> Excellence
                   </h1>
                   <p className="text-gray-300 text-lg leading-relaxed">
-                    Transform your business with hytGenX's innovative AI solutions. We design smart tools to simplify complexities, drive growth, and keep you ahead in a rapidly evolving world.
+                    Transform your business with TechnaCore AI's innovative AI solutions. We design smart tools to simplify complexities, drive growth, and keep you ahead in a rapidly evolving world.
                   </p>
                 </div>
 
@@ -59,7 +59,7 @@ function App() {
                     <span className="text-blue-400">Cutting-Edge AI</span> Research
                   </h2>
                   <p className="text-gray-300 leading-relaxed text-lg">
-                    At hytGenX, innovation is at the core of everything we do. Born from a passion for pushing technological boundaries, we combine AI-powered solutions with cutting-edge research to deliver transformative results.
+                    At TechnaCore AI, innovation is at the core of everything we do. Born from a passion for pushing technological boundaries, we combine AI-powered solutions with cutting-edge research to deliver transformative results.
                   </p>
                 </div>
               </div>
@@ -72,7 +72,7 @@ function App() {
                     with <span className="text-blue-400">AI</span>
                   </h2>
                   <p className="text-gray-300 leading-relaxed text-lg mb-6">
-                    Our vision is to lead the global transformation of technology by delivering AI-powered, data-driven solutions that empower businesses to innovate, scale, and achieve sustainable growth. We envision a world where technology is not just a tool, but a catalyst for unlocking human potential and driving societal progress. At hytGenX, we're not just shaping the future of technology, we're empowering a smarter, more connected world.
+                    Our vision is to lead the global transformation of technology by delivering AI-powered, data-driven solutions that empower businesses to innovate, scale, and achieve sustainable growth. We envision a world where technology is not just a tool, but a catalyst for unlocking human potential and driving societal progress. At TechnaCore AI, we're not just shaping the future of technology, we're empowering a smarter, more connected world.
                   </p>
                 </div>
 
@@ -107,7 +107,7 @@ function App() {
                     Through <span className="text-blue-400">Innovation</span>
                   </h2>
                   <p className="text-gray-300 leading-relaxed text-lg">
-                    Our mission is to empower organizations worldwide through AI-driven software solutions, advanced cloud infrastructure, and cutting-edge development practices. By focusing on customer success, innovation, and collaboration, we strive to deliver scalable, tailor-made solutions that meet the evolving needs of businesses in every industry. At hytGenX, we believe that technology should always be pushing boundaries, and we are dedicated to helping our clients stay ahead of the curve.
+                    Our mission is to empower organizations worldwide through AI-driven software solutions, advanced cloud infrastructure, and cutting-edge development practices. By focusing on customer success, innovation, and collaboration, we strive to deliver scalable, tailor-made solutions that meet the evolving needs of businesses in every industry. At TechnaCore AI, we believe that technology should always be pushing boundaries, and we are dedicated to helping our clients stay ahead of the curve.
                   </p>
                 </div>
               </div>
@@ -122,10 +122,10 @@ function App() {
             <div className="max-w-7xl mx-auto relative z-10">
               <div className="mb-20">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-                  Our Core Values: The <span className="text-blue-400">Heart of hytGenX</span>
+                  Our Core Values: The <span className="text-blue-400">Heart of TechnaCore AI</span>
                 </h2>
                 <p className="text-gray-400 max-w-3xl text-lg">
-                  At hytGenX, our values aren't just principles—they're the foundation of how we innovate, collaborate, and create value for our clients. Here's what drives us every day:
+                  At TechnaCore AI, our values aren't just principles—they're the foundation of how we innovate, collaborate, and create value for our clients. Here's what drives us every day:
                 </p>
               </div>
 

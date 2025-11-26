@@ -123,21 +123,23 @@ className="relative w-full py-0 bg-gradient-to-r from-indigo-50 via-white to-pur
         </motion.div>
 
         {/* Card 2 */}
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="flex-1 bg-gradient-to-br from-green-50 to-teal-100 border border-teal-200 rounded-2xl shadow-lg p-8 cursor-pointer hover:shadow-2xl transition-all duration-300"
-          onClick={() => setActiveForm("upload")}
-        >
-          <h3 className="text-2xl font-bold text-gray-900 mb-3">Upload Project Brief</h3>
-          <p className="text-gray-700 mb-6">
-            Have detailed requirements? Upload your brief or project document for a tailored estimate.
-          </p>
-          <button className="inline-flex items-center gap-2 px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-gradient-to-r from-green-500 to-teal-600 text-white font-semibold rounded-full hover:scale-105 transition-all duration-300">
-  Upload Your Project Brief <FaArrowRight />
-</button>
+        {/* Card 2 */}
+<motion.div
+  whileHover={{ scale: 1.05 }}
+  className="flex-1 bg-gradient-to-br from-blue-50 to-indigo-100 border border-indigo-200 rounded-2xl shadow-lg p-8 cursor-pointer hover:shadow-2xl transition-all duration-300"
+  onClick={() => setActiveForm("upload")}
+>
+  <h3 className="text-2xl font-bold text-gray-900 mb-3">Upload Project Brief</h3>
+  <p className="text-gray-700 mb-6">
+    Have detailed requirements? Upload your brief or project document for a tailored estimate.
+  </p>
+  <button className="inline-flex items-center gap-2 px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full hover:scale-105 transition-all duration-300">
+    Upload Your Project Brief <FaArrowRight />
+  </button>
 
-          <p className="mt-3 text-gray-500 text-sm">PDF, DOCX, or Paste Text.</p>
-        </motion.div>
+  <p className="mt-3 text-gray-500 text-sm">PDF, DOCX, or Paste Text.</p>
+</motion.div>
+
       </div>
 
       {/* Guided Form Modal */}
@@ -321,62 +323,63 @@ className="relative w-full py-0 bg-gradient-to-r from-indigo-50 via-white to-pur
       </AnimatePresence>
 
       {/* Upload Modal */}
-      <AnimatePresence>
-        {activeForm === "upload" && (
-          <motion.div
-            key="upload-modal"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+<AnimatePresence>
+  {activeForm === "upload" && (
+    <motion.div
+      key="upload-modal"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+    >
+      <motion.div
+        initial={{ scale: 0.9, y: 30 }}
+        animate={{ scale: 1, y: 0 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="bg-gradient-to-br from-indigo-50 via-white to-blue-100 rounded-3xl shadow-2xl p-8 max-w-2xl w-full relative"
+      >
+        <h3 className="text-xl font-bold mb-4 text-gray-800">Upload Project Brief</h3>
+
+        <label className="border-2 border-dashed border-gray-300 rounded-2xl p-6 text-center mb-4 cursor-pointer hover:border-indigo-500 transition-colors block">
+          <FaFileUpload className="mx-auto w-10 h-10 text-gray-400 mb-2" />
+          <p>{uploadedFile ? uploadedFile.name : "Click or drag file here"}</p>
+          <input type="file" className="hidden" onChange={handleFileUpload} />
+        </label>
+
+        <textarea
+          placeholder="Additional notes..."
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+          className="w-full border border-gray-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-4"
+        />
+
+        {/* Buttons same design as Guided Form modal */}
+        <div className="mt-6 flex justify-between">
+          <button
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300 transition-all"
+            onClick={() => setActiveForm(null)}
           >
-            <motion.div
-              initial={{ scale: 0.9, y: 30 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="bg-gradient-to-br from-green-50 via-white to-teal-100 rounded-3xl shadow-2xl p-8 max-w-2xl w-full relative"
-            >
-              <h3 className="text-xl font-bold mb-4 text-gray-800">Upload Project Brief</h3>
+            <FaArrowLeft /> Back
+          </button>
+          <button
+            className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-500 text-white rounded-full hover:bg-indigo-600 transition-all"
+            onClick={handleSubmit}
+          >
+            Submit <FaArrowRight />
+          </button>
+        </div>
 
-              <label className="border-2 border-dashed border-gray-300 rounded-2xl p-6 text-center mb-4 cursor-pointer hover:border-teal-500 transition-colors block">
-                <FaFileUpload className="mx-auto w-10 h-10 text-gray-400 mb-2" />
-                <p>{uploadedFile ? uploadedFile.name : "Click or drag file here"}</p>
-                <input type="file" className="hidden" onChange={handleFileUpload} />
-              </label>
-
-              <textarea
-                placeholder="Additional notes..."
-                value={notes}
-                onChange={(e) => setNotes(e.target.value)}
-                className="w-full border border-gray-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-teal-500 mb-4"
-              />
-
-              <div className="flex justify-between">
-                <button
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300 transition-all"
-                  onClick={() => setActiveForm(null)}
-                >
-                  <FaArrowLeft /> Back
-                </button>
-                <button
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500 text-white rounded-full hover:bg-teal-600 transition-all"
-                  onClick={handleSubmit}
-                >
-                  Submit <FaArrowRight />
-                </button>
-              </div>
-
-              <button
-                className="absolute top-4 right-4 text-gray-400 hover:text-gray-700"
-                onClick={() => setActiveForm(null)}
-              >
-                ✕
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        <button
+          className="absolute top-4 right-4 text-gray-400 hover:text-gray-700"
+          onClick={() => setActiveForm(null)}
+        >
+          ✕
+        </button>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
       {/* Thank You Popup */}
       <AnimatePresence>

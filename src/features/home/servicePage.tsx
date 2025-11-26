@@ -1,27 +1,33 @@
 import { motion } from "framer-motion";
 
 import { services } from "../../constants";
+import { FiCheck } from "react-icons/fi";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 const ServicesSection = () => {
   return (
-    <section className="w-full py-28 bg-[#04294E] text-gray-900 font-poppins">
+    <section className="w-full py-28 bg-white text-gray-900 font-poppins">
       {/* ================= HEADER ================= */}
-      <motion.h2
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-4xl md:text-5xl text-center font-extrabold mb-6 text-white hover:scale-105 transition-transform duration-500"
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        className="max-w-6xl mx-auto px-6 md:px-12 text-center mb-20"
       >
-        Our Services
-      </motion.h2>
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-        className="text-gray-300 text-center max-w-3xl mx-auto mb-20 text-lg"
-      >
-        We provide scalable, secure, and innovative solutions that transform ideas into high-performance products.
-      </motion.p>
+        <h2 className="text-4xl md:text-5xl font-extrabold mt-3 relative inline-block">
+          Our Services
+          <span className="absolute -bottom-2 left-0 w-full h-[3px] bg-indigo-600 rounded-full"></span>
+        </h2>
+
+        <p className="mt-6 text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
+          We deliver modern, high-quality solutions designed to help your business grow.
+        </p>
+      </motion.div>
 
       {/* ================= SERVICES GRID ================= */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -53,15 +59,18 @@ const ServicesSection = () => {
 
               {/* Features List */}
               <ul className="flex flex-col gap-3 mt-6">
-                {service.features.map((feature, i) => (
-                  <li
-                    key={i}
-                    className="flex items-center gap-3 text-gray-700 font-medium"
-                  >
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+  {service.features.map((feature, i) => (
+    <li
+      key={i}
+      className="flex items-center gap-3 text-gray-700 font-medium"
+    >
+      <span className="flex items-center justify-center w-6 h-6 bg-indigo-600 text-white rounded-full">
+        <FiCheck size={16} />
+      </span>
+      <span>{feature}</span>
+    </li>
+  ))}
+</ul>
             </div>
 
             <button

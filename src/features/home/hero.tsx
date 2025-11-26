@@ -29,8 +29,6 @@ const Hero = () => {
     });
 
     return () => intervals.forEach((i) => clearInterval(i));
-
-
   }, []);
 
   return (
@@ -39,10 +37,22 @@ const Hero = () => {
       <section
         id="hero"
         className="w-full min-h-screen flex flex-col items-center justify-center
-bg-cover bg-center px-4 sm:px-6 md:px-12 py-15
-text-center relative"
-        style={{ backgroundImage: "url('/assets/home-banner-img.svg')" }}
+        bg-cover bg-center px-4 sm:px-6 md:px-12 py-15
+        text-center relative overflow-hidden"
+        // style={{ backgroundImage: "url('/assets/ai_web.mp4')" }}
       >
+
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-[-1]"
+        >
+          <source src="/assets/ai_web.mp4" type="video/mp4" />
+        </video>
+
         {/* Headings */}
         <h1
           className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl 
@@ -50,12 +60,14 @@ text-center relative"
           transition-all duration-700 
           ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
-          The Core Of </h1>
+          The Core Of
+        </h1>
+
         <h2
           className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl 
-      font-bold text-white font-poppins 
-      transition-all duration-700 delay-150 
-      ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+          font-bold text-white font-poppins 
+          transition-all duration-700 delay-150 
+          ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
           Intelligent Transformation
         </h2>
@@ -63,9 +75,9 @@ text-center relative"
         {/* Paragraph */}
         <p
           className={`text-base sm:text-lg md:text-xl lg:text-2xl 
-      text-white max-w-[850px] text-center mt-6 
-      transition-all duration-700 delay-300 
-      ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+          text-white max-w-[850px] text-center mt-6 
+          transition-all duration-700 delay-300 
+          ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
           From custom websites to enterprise-grade AI software, we engineer solutions
           that help businesses scale faster, work smarter, and stay ahead in the digital age.
@@ -74,9 +86,9 @@ text-center relative"
         {/* Stats */}
         <div
           className={`flex flex-col sm:flex-row items-center justify-center 
-      gap-8 sm:gap-12 mt-12 
-      transition-all duration-700 delay-400 
-      ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+          gap-8 sm:gap-12 mt-12 
+          transition-all duration-700 delay-400 
+          ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
           <div
             className={`flex flex-row items-center justify-center gap-8 sm:gap-12 mt-12 transition-all duration-700 delay-400 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
@@ -87,10 +99,14 @@ text-center relative"
                   {stat.id === 1 ? (
                     <img src="/assets/star-rating.svg" alt="rating" width={150} height={20} className="object-contain" />
                   ) : (
-                    <span className="text-[48px] sm:text-[54px] md:text-[64px] font-bold text-white">{Math.round(counters[idx])}+</span>
+                    <span className="text-[48px] sm:text-[54px] md:text-[64px] font-bold text-white">
+                      {Math.round(counters[idx])}+
+                    </span>
                   )}
                 </div>
-                <p className="text-[16px] sm:text-[17px] md:text-[19px] text-white/80 text-center">{stat.label}</p>
+                <p className="text-[16px] sm:text-[17px] md:text-[19px] text-white/80 text-center">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>
@@ -99,35 +115,17 @@ text-center relative"
         {/* Button */}
         <button
           className={`mt-10 px-6 sm:px-8 py-3 sm:py-4 
-      bg-blue-600 text-white rounded-full 
-      font-poppins font-semibold 
-      hover:bg-blue-700 w-auto
-      transition-all duration-300 
-      ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+          bg-blue-600 text-white rounded-full 
+          font-poppins font-semibold 
+          hover:bg-blue-700 w-auto
+          transition-all duration-300 
+          ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
           Get Your Free Consultation
         </button>
 
-        {/* Hero Section Bottom Curve */}
-        {/* <div className="w-full">
-          <svg
-            className="absolute bottom-0 left-0 w-full h-40"
-            viewBox="0 0 1440 320"
-            preserveAspectRatio="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="#04294E"
-              fillOpacity="1"
-              d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            ></path>
-          </svg>
-        </div> */}
-
       </section>
-
     </>
-
   );
 };
 

@@ -1,8 +1,13 @@
 import { Brain, Cog, Users, TrendingUp} from 'lucide-react';
 import { IndusSection } from '..';
 import ToolsTechSection from './toolsTechnology';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
+  const navigate = useNavigate();
+const handleNavigate=()=>{
+  navigate('/form')
+}
   const features = [
     {
       icon: Brain,
@@ -82,7 +87,9 @@ function App() {
                 Leverage the power of artificial intelligence to drive smarter decisions, streamline processes, and elevate user experiences.
               </p>
 
-              <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/50">
+              <button
+              onClick={handleNavigate}
+              className="bg-blue-500 cursor-pointer hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/50">
                 Contact Us
               </button>
             </div>
