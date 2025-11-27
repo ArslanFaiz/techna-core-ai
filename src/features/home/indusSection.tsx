@@ -1,29 +1,7 @@
-import { Stethoscope, DollarSign, ShoppingBag, Settings } from 'lucide-react';
+import { industries } from '../../constants';
 
 function Industries() {
-  const industries = [
-    {
-      icon: Stethoscope,
-      title: 'Healthcare',
-      description: 'Leverage AI to improve patient outcomes, streamline administrative tasks, and personalize treatment plans.'
-    },
-    {
-      icon: DollarSign,
-      title: 'Finance',
-      description: 'Implement AI to detect fraud, enhance risk management, and improve financial forecasting.'
-    },
-    {
-      icon: ShoppingBag,
-      title: 'Retail',
-      description: 'Use AI to optimize inventory, personalize shopping experiences, and predict consumer trends.'
-    },
-    {
-      icon: Settings,
-      title: 'Manufacturing',
-      description: 'Apply AI for predictive maintenance, production optimization, and quality control.'
-    }
-  ];
-
+  
   return (
     <section className="px-4 sm:px-6 lg:px-12 py-20">
       <div className="max-w-7xl mx-auto">

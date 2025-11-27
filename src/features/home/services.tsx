@@ -1,5 +1,5 @@
-import { Brain, Cog, Users, TrendingUp} from 'lucide-react';
 import { IndusSection } from '..';
+import { features, serviceses } from '../../constants';
 import ToolsTechSection from './toolsTechnology';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,62 +8,6 @@ function App() {
 const handleNavigate=()=>{
   navigate('/form')
 }
-  const features = [
-    {
-      icon: Brain,
-      title: 'Smarter Decision-Making',
-      description: 'Turn data into actionable insights with AI models that help you make informed decisions, quickly adapting to market changes and customer needs.'
-    },
-    {
-      icon: Cog,
-      title: 'Process Automation',
-      description: 'Reduce human error and free up your team\'s time by automating repetitive tasks, increasing operational efficiency.'
-    },
-    {
-      icon: Users,
-      title: 'Personalized User Experiences',
-      description: 'Deliver custom, AI-driven experiences for your customers, offering personalized recommendations and improving engagement.'
-    },
-    {
-      icon: TrendingUp,
-      title: 'Scalable and Adaptable',
-      description: 'As your business grows, our AI solutions grow with you, allowing for easy updates and scalability to handle increased demands.'
-    }
-  ];
-
-  const services = [
-    {
-      title: 'AI Model Development',
-      description: 'Build custom AI models tailored to your specific business needs, from predictive analytics to computer vision solutions.',
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      title: 'Natural Language Processing (NLP)',
-      description: 'Utilize NLP for tasks like sentiment analysis, chatbots, and text-based insights to enhance customer interactions.',
-      image: 'https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      title: 'Machine Learning',
-      description: 'Implement advanced machine learning algorithms to uncover patterns, make predictions, and automate decision-making processes.',
-      image: 'https://hytgenx.com/background/servicesPage/subservice-3.jpg'
-    },
-    {
-      title: 'Process Automation with AI',
-      description: 'Streamline workflows and reduce manual tasks with intelligent automation powered by artificial intelligence.',
-      image: 'https://hytgenx.com/background/servicesPage/subservice-4.jpg'
-    },
-    {
-      title: 'AI Integration',
-      description: 'Seamlessly integrate AI capabilities into your existing systems and applications for enhanced functionality.',
-      image: '	https://hytgenx.com/background/servicesPage/subservice-5.jpg'
-    },
-    {
-      title: 'AI-Driven Analytics',
-      description: 'Transform raw data into actionable insights with advanced analytics powered by machine learning algorithms.',
-      image: 'https://hytgenx.com/background/servicesPage/subservice-6.jpg'
-    }
-  ];
-
   return (
     <>
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-blue-900 to-gray-900 text-white">
@@ -138,7 +82,7 @@ const handleNavigate=()=>{
           </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-16">
-            {services.map((service, index) => (
+            {serviceses.map((service, index) => (
               <div
                 key={index}
                 className="group relative bg-gradient-to-b from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 overflow-hidden hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/30 hover:-translate-y-2"

@@ -1,64 +1,9 @@
 import { Code2, Server, Database } from 'lucide-react';
-import {
-  SiReact,
-  SiVuedotjs,
-  SiNextdotjs,
-  SiTypescript,
-  SiJavascript,
-  SiHtml5,
-  SiCss3,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiDjango,
-  SiFlask,
-  SiNestjs,
-  SiPython,
-  SiRubyonrails,
-  SiExpress,
-  SiFastapi,
-  SiPostgresql,
-  SiMongodb,
-  SiFirebase,
-  SiRedis,
-  SiGraphql,
-  SiMysql,
-  SiSupabase
-} from "react-icons/si";
+import { backendTech, dbTech, frontendTech } from '../../constants';
+
 
 
 const ToolsTechSection = () => {
-const frontendTech = [
-{ name: 'React JS', icon: <SiReact className="w-10 h-10 text-blue-500" /> },
-{ name: 'Vue JS', icon: <SiVuedotjs className="w-10 h-10 text-green-500" /> },
-{ name: 'Next JS', icon: <SiNextdotjs className="w-10 h-10 text-gray-900" /> },
-{ name: 'TypeScript', icon: <SiTypescript className="w-10 h-10 text-blue-700" /> },
-{ name: 'JavaScript', icon: <SiJavascript className="w-10 h-10 text-yellow-400" /> },
-{ name: 'HTML 5', icon: <SiHtml5 className="w-10 h-10 text-orange-500" /> },
-{ name: 'CSS 3', icon: <SiCss3 className="w-10 h-10 text-blue-600" /> },
-{ name: 'Tailwind', icon: <SiTailwindcss className="w-10 h-10 text-teal-400" /> },
-];
-
-const backendTech = [
-{ name: 'Node JS', icon: <SiNodedotjs className="w-10 h-10 text-green-600" /> },
-{ name: 'Django', icon: <SiDjango className="w-10 h-10 text-green-700" /> },
-{ name: 'Flask', icon: <SiFlask className="w-10 h-10 text-gray-600" /> },
-{ name: 'Nest JS', icon: <SiNestjs className="w-10 h-10 text-red-600" /> },
-{ name: 'Python', icon: <SiPython className="w-10 h-10 text-yellow-500" /> },
-{ name: 'Ruby on Rails', icon: <SiRubyonrails className="w-10 h-10 text-red-500" /> },
-{ name: 'Express', icon: <SiExpress className="w-10 h-10 text-gray-700" /> },
-{ name: 'FastAPI', icon: <SiFastapi className="w-10 h-10 text-blue-400" /> },
-];
-
-const dbTech = [
-{ name: 'PostgreSQL', icon: <SiPostgresql className="w-10 h-10 text-blue-600" /> },
-{ name: 'MongoDB', icon: <SiMongodb className="w-10 h-10 text-green-600" /> },
-{ name: 'Firebase', icon: <SiFirebase className="w-10 h-10 text-yellow-400" /> },
-{ name: 'Redis', icon: <SiRedis className="w-10 h-10 text-red-500" /> },
-{ name: 'GraphQL', icon: <SiGraphql className="w-10 h-10 text-pink-500" /> },
-{ name: 'REST API', icon: <Code2 className="w-10 h-10 text-gray-500" /> },
-{ name: 'Supabase', icon: <SiSupabase className="w-10 h-10 text-blue-400" /> },
-{ name: 'MySQL', icon: <SiMysql className="w-10 h-10 text-blue-500" /> },
-];
 
 const renderTechGrid = (techArray: {name: string, icon: React.ReactNode }[]) => ( <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 {techArray.map((tech, idx) => ( <div

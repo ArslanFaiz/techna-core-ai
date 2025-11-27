@@ -2,6 +2,8 @@ import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import 'react-phone-input-2/lib/style.css';
 import { FiPhone, FiCheck } from "react-icons/fi";
+import { createContact } from "../../Api/contact";
+import toast, { Toaster } from "react-hot-toast";
 type PremiumSectionProps = {
   bgClass?: string; // optional background class
 };
@@ -10,14 +12,13 @@ const services = ["UI/UX Design", "Web Development", "Mobile App", "Product Stra
 
 function App({bgClass='bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950'}:PremiumSectionProps) {
   const [formData, setFormData] = useState({
-    fullName: "",
-    contactNumber: "",
+    name: "",
+    contact: "",
     email: "",
     service: "",
-    message: "",
-    terms: false,
-    marketing: false,
+    projectDetail: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -31,16 +32,59 @@ function App({bgClass='bg-gradient-to-br from-slate-50 via-white to-slate-100 da
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(formData);
-    alert("Form submitted!");
-  };
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  // Basic Field Validation
+  if (!formData.name || !formData.email || !formData.contact || !formData.projectDetail) {
+    toast.error("Please fill all required fields!");
+    return;
+  }
+
+  // Phone must contain country code
+  if (!formData.contact.startsWith("")) {
+    toast.error("Please enter a valid phone number with country code. Example: +92306646084");
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const response = await createContact({
+      name: formData.name,
+      email: formData.email,
+      contact: formData.contact, // Already in string format
+      service: formData.service || "",
+      projectDetail: formData.projectDetail,
+    });
+
+    console.log("Contact Created:", response);
+    toast.success("Form submitted successfully!");
+
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      contact: "",
+      service: "",
+      projectDetail: "",
+    });
+  } catch (error: any) {
+    console.error("Submit Error:", error.response?.data || error.message);
+    toast.error("Failed to submit form. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
+    
     <section
       className={`relative min-h-screen py-16 md:py-24 px-6 ${bgClass}  overflow-hidden`}
     >
+      <Toaster position="top-center"/>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent dark:from-blue-950/20"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-cyan-100/30 via-transparent to-transparent dark:from-cyan-950/20"></div>
 
@@ -106,8 +150,8 @@ function App({bgClass='bg-gradient-to-br from-slate-50 via-white to-slate-100 da
                   </label>
                   <input
                     type="text"
-                    name="fullName"
-                    value={formData.fullName}
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
                     required
                     className="w-full rounded-xl border-2 border-slate-200 dark:border-slate-700
@@ -124,11 +168,11 @@ function App({bgClass='bg-gradient-to-br from-slate-50 via-white to-slate-100 da
                     Contact Number
                   </label>
                   <PhoneInput
-                    value={formData.contactNumber}
-                    onChange={(phone) => setFormData({ ...formData, contactNumber: phone })}
+                    value={formData.contact}
+                    onChange={(phone) => setFormData({ ...formData, contact: phone })}
                     placeholder="+1"
                     inputClass="w-full text-left rounded-xl text-slate-800 dark:text-slate-100 placeholder-slate-400"
-                    buttonClass={`absolute left-0 top-0 h-full flex items-center justify-center rounded-l-xl border-none bg-transparent text-slate-500 ${!formData.contactNumber ? "invisible" : "visible"}`}
+                    buttonClass={`absolute left-0 top-0 h-full flex items-center justify-center rounded-l-xl border-none bg-transparent text-slate-500 ${!formData.contact ? "invisible" : "visible"}`}
                     inputStyle={{
                       width: "100%",
                       background: "transparent",
@@ -143,7 +187,7 @@ function App({bgClass='bg-gradient-to-br from-slate-50 via-white to-slate-100 da
                     containerClass="relative"
                     country={undefined}
                   />
-                  {!formData.contactNumber && (
+                  {!formData.contact && (
     <div className="absolute left-3 top-12 -translate-y-1/2 text-gray-500">
       <FiPhone size={20} />
     </div>
@@ -207,8 +251,8 @@ function App({bgClass='bg-gradient-to-br from-slate-50 via-white to-slate-100 da
                     Project Details
                   </label>
                   <textarea
-                    name="message"
-                    value={formData.message}
+                    name="projectDetail"
+                    value={formData.projectDetail}
                     onChange={handleChange}
                     required
                     rows={4}
@@ -226,7 +270,6 @@ function App({bgClass='bg-gradient-to-br from-slate-50 via-white to-slate-100 da
                     <input
                       type="checkbox"
                       name="terms"
-                      checked={formData.terms}
                       onChange={handleChange}
                       required
                       className="mt-1 w-5 h-5 rounded-md border-2 border-slate-300 dark:border-slate-600
@@ -242,7 +285,6 @@ function App({bgClass='bg-gradient-to-br from-slate-50 via-white to-slate-100 da
                     <input
                       type="checkbox"
                       name="marketing"
-                      checked={formData.marketing}
                       onChange={handleChange}
                       className="mt-1 w-5 h-5 rounded-md border-2 border-slate-300 dark:border-slate-600
                                  text-blue-600 focus:ring-2 focus:ring-blue-500/50 cursor-pointer
@@ -263,7 +305,7 @@ function App({bgClass='bg-gradient-to-br from-slate-50 via-white to-slate-100 da
                              transform transition-all duration-200
                              focus:outline-none focus:ring-4 focus:ring-blue-500/50"
                 >
-                  Book A Consultation
+                  {loading ? 'Submitting...' : 'Book A Consultation'}
                 </button>
 
                 <p className="text-center text-sm text-slate-500 dark:text-slate-400 pt-2">

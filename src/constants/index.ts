@@ -1,5 +1,30 @@
-import { FaChartLine, FaCloud, FaLaptopCode, FaMobileAlt, FaRocket, FaShieldAlt } from "react-icons/fa";
-
+import { Brain, Code2, Cog, DollarSign, Settings, ShoppingBag, Stethoscope, TrendingUp, Users } from "lucide-react";
+import React from "react";
+import {
+  SiReact,
+  SiVuedotjs,
+  SiNextdotjs,
+  SiTypescript,
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiDjango,
+  SiFlask,
+  SiNestjs,
+  SiPython,
+  SiRubyonrails,
+  SiExpress,
+  SiFastapi,
+  SiPostgresql,
+  SiMongodb,
+  SiFirebase,
+  SiRedis,
+  SiGraphql,
+  SiMysql,
+  SiSupabase
+} from "react-icons/si";
 export const services = [
   {
     id: 1,
@@ -37,6 +62,40 @@ export const services = [
     features: ["Custom AI solutions", "Operational efficiency", "Business workflow integration"],
   },
 ];
+
+export const serviceses = [
+    {
+      title: 'AI Model Development',
+      description: 'Build custom AI models tailored to your specific business needs, from predictive analytics to computer vision solutions.',
+      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
+    {
+      title: 'Natural Language Processing (NLP)',
+      description: 'Utilize NLP for tasks like sentiment analysis, chatbots, and text-based insights to enhance customer interactions.',
+      image: 'https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
+    {
+      title: 'Machine Learning',
+      description: 'Implement advanced machine learning algorithms to uncover patterns, make predictions, and automate decision-making processes.',
+      image: 'https://hytgenx.com/background/servicesPage/subservice-3.jpg'
+    },
+    {
+      title: 'Process Automation with AI',
+      description: 'Streamline workflows and reduce manual tasks with intelligent automation powered by artificial intelligence.',
+      image: 'https://hytgenx.com/background/servicesPage/subservice-4.jpg'
+    },
+    {
+      title: 'AI Integration',
+      description: 'Seamlessly integrate AI capabilities into your existing systems and applications for enhanced functionality.',
+      image: '	https://hytgenx.com/background/servicesPage/subservice-5.jpg'
+    },
+    {
+      title: 'AI-Driven Analytics',
+      description: 'Transform raw data into actionable insights with advanced analytics powered by machine learning algorithms.',
+      image: 'https://hytgenx.com/background/servicesPage/subservice-6.jpg'
+    }
+  ];
+
 // blogsData.ts
 export const blogs = [
   {
@@ -119,114 +178,78 @@ export const techLogos = [
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg", alt: "GraphQL" },
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", alt: "Docker" },
 ];
-export const serviceses= [
-  {
-    id: "s1",
-    title: "Cloud-Native Architecture",
-    description:
-      "Design and implement scalable cloud systems using modern microservices patterns and serverless best-practices.",
-    features: ["Auto-scaling", "Fault tolerance", "Cost optimization"],
-    Icon: FaCloud,
-    colorFrom: "from-indigo-500",
-    colorTo: "to-purple-600",
-  },
-  {
-    id: "s2",
-    title: "Mobile & Web Apps",
-    description:
-      "Fast, accessible and delightful experiences — React, TypeScript, native, and PWAs built for growth.",
-    features: ["Responsive UI", "Performance budget", "Offline-ready"],
-    Icon: FaMobileAlt,
-    colorFrom: "from-blue-500",
-    colorTo: "to-indigo-600",
-  },
-  {
-    id: "s3",
-    title: "Security & Compliance",
-    description:
-      "Security-first engineering, threat modeling, and compliance (GDPR / SOC2) advisory for serious products.",
-    features: ["Threat modeling", "Pen-test readiness", "Secure CI/CD"],
-    Icon: FaShieldAlt,
-    colorFrom: "from-purple-600",
-    colorTo: "to-pink-600",
-  },
-  {
-    id: "s4",
-    title: "Growth & Performance",
-    description:
-      "Drive measurable growth with performance engineering, analytics, and A/B experimentation.",
-    features: ["Performance audit", "Data instrumentation", "A/B testing"],
-    Icon: FaChartLine,
-    colorFrom: "from-teal-400",
-    colorTo: "to-blue-600",
-  },
-  {
-    id: "s5",
-    title: "Product Engineering",
-    description:
-      "End-to-end product design and engineering — from discovery and prototyping to production-ready code.",
-    features: ["Design systems", "Iterative delivery", "Quality engineering"],
-    Icon: FaLaptopCode,
-    colorFrom: "from-indigo-400",
-    colorTo: "to-cyan-600",
-  },
-  {
-    id: "s6",
-    title: "Platform & Cloud Ops",
-    description:
-      "Reliable platform engineering for release velocity: infra-as-code, observability, and runbooks.",
-    features: ["IaC", "Observability", "Runbook automation"],
-    Icon: FaRocket,
-    colorFrom: "from-pink-500",
-    colorTo: "to-red-500",
-  },
-];
-export const steps = [
-{
-step: "01",
-title: "Discovery Phase",
-description:
-"During the initial phase, we delve deep into understanding your business objectives, target audience, and project requirements. This involves comprehensive research, stakeholder interviews, and competitive analysis to lay the foundation for a successful project.",
-},
-{
-step: "02",
-title: "Strategy Development",
-description:
-"With insights gathered from the discovery phase, we develop a comprehensive strategy that aligns with your business goals. This includes creating user personas, defining project scope, establishing timelines, and outlining the technical architecture that will drive your project forward.",
-},
-{
-step: "03",
-title: "Implementation and Execution",
-description:
-"Our experienced team brings the strategy to life through careful implementation. We follow agile development methodologies, maintain regular communication throughout the process, and ensure quality through rigorous testing and iterative improvements.",
-},
-{
-step: "04",
-title: "Monitoring and Optimization",
-description:
-"Post-launch, we continuously monitor performance metrics and user feedback to identify opportunities for enhancement. Our commitment extends beyond delivery, ensuring your digital solution evolves with your business needs and maintains peak performance.",
-},
-];
-
-export const faqs = [
+export const industries = [
     {
-      question: "What services do you offer?",
-      answer: "We specialize in mobile app design and development, web app design and development, desktop app solutions, UI/UX design, and SaaS product design and development. Our team is dedicated to delivering tailored digital solutions to meet your business needs."
+      icon: Stethoscope,
+      title: 'Healthcare',
+      description: 'Leverage AI to improve patient outcomes, streamline administrative tasks, and personalize treatment plans.'
     },
     {
-      question: "How long does it take to complete a project?",
-      answer: "Project timelines vary depending on the scope and complexity. Typically, a standard web application takes 8-12 weeks, while mobile apps can take 10-16 weeks. We'll provide a detailed timeline during our initial consultation."
+      icon: DollarSign,
+      title: 'Finance',
+      description: 'Implement AI to detect fraud, enhance risk management, and improve financial forecasting.'
     },
     {
-      question: "Do you support projects after delivery?",
-      answer: "Yes, we offer comprehensive post-launch support including bug fixes, updates, maintenance, and feature enhancements. We provide various support packages tailored to your needs."
+      icon: ShoppingBag,
+      title: 'Retail',
+      description: 'Use AI to optimize inventory, personalize shopping experiences, and predict consumer trends.'
     },
     {
-      question: "Can you work within my budget?",
-      answer: "We work with various budget ranges and can customize solutions to fit your financial constraints. During our consultation, we'll discuss your budget and find the best approach to deliver value within your means."
-    },
-    {
-      question: "What makes your team different?",
-      answer: "Our team combines technical expertise with creative innovation. We focus on understanding your business goals, maintaining transparent communication, and delivering solutions that drive real results. We're committed to long-term partnerships, not just project completion."
+      icon: Settings,
+      title: 'Manufacturing',
+      description: 'Apply AI for predictive maintenance, production optimization, and quality control.'
     }
   ];
+  export   const features = [
+    {
+      icon: Brain,
+      title: 'Smarter Decision-Making',
+      description: 'Turn data into actionable insights with AI models that help you make informed decisions, quickly adapting to market changes and customer needs.'
+    },
+    {
+      icon: Cog,
+      title: 'Process Automation',
+      description: 'Reduce human error and free up your team\'s time by automating repetitive tasks, increasing operational efficiency.'
+    },
+    {
+      icon: Users,
+      title: 'Personalized User Experiences',
+      description: 'Deliver custom, AI-driven experiences for your customers, offering personalized recommendations and improving engagement.'
+    },
+    {
+      icon: TrendingUp,
+      title: 'Scalable and Adaptable',
+      description: 'As your business grows, our AI solutions grow with you, allowing for easy updates and scalability to handle increased demands.'
+    }
+  ];
+export const frontendTech = [
+  { name: "React JS", icon: React.createElement(SiReact, { className: "w-10 h-10 text-blue-500" }) },
+  { name: "Vue JS", icon: React.createElement(SiVuedotjs, { className: "w-10 h-10 text-green-500" }) },
+  { name: "Next JS", icon: React.createElement(SiNextdotjs, { className: "w-10 h-10 text-gray-900" }) },
+  { name: "TypeScript", icon: React.createElement(SiTypescript, { className: "w-10 h-10 text-blue-700" }) },
+  { name: "JavaScript", icon: React.createElement(SiJavascript, { className: "w-10 h-10 text-yellow-400" }) },
+  { name: "HTML 5", icon: React.createElement(SiHtml5, { className: "w-10 h-10 text-orange-500" }) },
+  { name: "CSS 3", icon: React.createElement(SiCss3, { className: "w-10 h-10 text-blue-600" }) },
+  { name: "Tailwind", icon: React.createElement(SiTailwindcss, { className: "w-10 h-10 text-teal-400" }) },
+];
+export const backendTech = [
+  { name: "Node JS", icon: React.createElement(SiNodedotjs, { className: "w-10 h-10 text-green-600" }) },
+  { name: "Django", icon: React.createElement(SiDjango, { className: "w-10 h-10 text-green-700" }) },
+  { name: "Flask", icon: React.createElement(SiFlask, { className: "w-10 h-10 text-gray-600" }) },
+  { name: "Nest JS", icon: React.createElement(SiNestjs, { className: "w-10 h-10 text-red-600" }) },
+  { name: "Python", icon: React.createElement(SiPython, { className: "w-10 h-10 text-yellow-500" }) },
+  { name: "Ruby on Rails", icon: React.createElement(SiRubyonrails, { className: "w-10 h-10 text-red-500" }) },
+  { name: "Express", icon: React.createElement(SiExpress, { className: "w-10 h-10 text-gray-700" }) },
+  { name: "FastAPI", icon: React.createElement(SiFastapi, { className: "w-10 h-10 text-blue-400" }) },
+];
+
+export const dbTech = [
+  { name: "PostgreSQL", icon: React.createElement(SiPostgresql, { className: "w-10 h-10 text-blue-600" }) },
+  { name: "MongoDB", icon: React.createElement(SiMongodb, { className: "w-10 h-10 text-green-600" }) },
+  { name: "Firebase", icon: React.createElement(SiFirebase, { className: "w-10 h-10 text-yellow-400" }) },
+  { name: "Redis", icon: React.createElement(SiRedis, { className: "w-10 h-10 text-red-500" }) },
+  { name: "GraphQL", icon: React.createElement(SiGraphql, { className: "w-10 h-10 text-pink-500" }) },
+  { name: "REST API", icon: React.createElement(Code2, { className: "w-10 h-10 text-gray-500" }) },
+  { name: "Supabase", icon: React.createElement(SiSupabase, { className: "w-10 h-10 text-blue-400" }) },
+  { name: "MySQL", icon: React.createElement(SiMysql, { className: "w-10 h-10 text-blue-500" }) },
+];
