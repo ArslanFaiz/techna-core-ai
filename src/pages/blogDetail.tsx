@@ -2,13 +2,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { fetchBlogs } from "../Api/blog";
-import type { Blog } from "../types";
+import type { Blog as BlogType } from "../types";
 
 const BlogDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  const [blog, setBlog] = useState<Blog | null>(null);
+  const [blog, setBlog] = useState<BlogType | null>(null);
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState([
     {

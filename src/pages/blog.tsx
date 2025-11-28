@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchBlogs } from "../Api/blog"; // blog.ts ka path
-import { User } from "lucide-react";
-import type { Blog } from "../types";
+import { User } from "lucide-react";  
+import type { Blog as BlogType } from "../types";
 
 const Blog = () => {
   const itemsPerPage = 4;
-const [blogs, setBlogs] = useState<Blog[]>([]);   const [loading, setLoading] = useState(true);
+const [blogs, setBlogs] = useState<BlogType[]>([]);   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
 
