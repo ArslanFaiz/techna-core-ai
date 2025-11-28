@@ -11,7 +11,6 @@ function App() {
           backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0)',
           backgroundSize: '40px 40px'
         }} />
-
         <div className="relative z-10">
           <section className="min-h-screen px-4 sm:px-6 lg:px-12 py-12 flex items-center">
             <div className="max-w-7xl mx-auto w-full">
