@@ -137,7 +137,7 @@ const handleSubmit = async (e: React.FormEvent) => {
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-500 dark:to-cyan-500 rounded-3xl blur-2xl opacity-20 animate-pulse"></div>
 
-            <div className="relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl rounded-3xl p-8 md:p-12 shadow-2xl border border-slate-200/50 dark:border-slate-800/50">
+<div className="relative bg-white/60 dark:bg-slate-900/60 backdrop-blur-2xl rounded-3xl p-8 md:p-12 shadow-2xl border border-slate-200/50 dark:border-slate-800/50">
               <div className="mb-8">
                 <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Start Your Project</h2>
                 <p className="text-slate-600 dark:text-slate-400">Fill out the form and we'll get back to you within 24 hours</p>

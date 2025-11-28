@@ -12,7 +12,7 @@ export type ProjectBriefData = {
   document: File; // File object from input
 };
 
-export const createProjectBrief = async (data: ProjectBriefData) => {
+export const createProjectBrief = async (data: any) => {
   try {
     const formData = new FormData();
     formData.append("email", data.email);
