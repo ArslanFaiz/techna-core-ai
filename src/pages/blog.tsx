@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { fetchBlogs, type Blog } from "../Api/blog"; // blog.ts ka path
+import { fetchBlogs } from "../Api/blog"; // blog.ts ka path
 import { User } from "lucide-react";
+import type { Blog } from "../types";
 
 const Blog = () => {
   const itemsPerPage = 4;

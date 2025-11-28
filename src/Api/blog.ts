@@ -1,19 +1,5 @@
 import axios from "axios";
-export type BlogImage = {
-  id: string;
-  blogId: string;
-  imageUrl: string;
-  createdAt: string;
-};
-
-export type Blog = {
-  id: string;
-  title: string;
-  description: string;
-  images: BlogImage[]; 
-  published: boolean;
-  createdAt: string;
-};
+import type { Blog } from "../types";
 
 const BASE_URL = "https://technacallcanadabackend-production.up.railway.app/api";
 

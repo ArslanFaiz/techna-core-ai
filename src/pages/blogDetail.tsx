@@ -1,7 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { fetchBlogs, type Blog } from "../Api/blog";
+import { fetchBlogs } from "../Api/blog";
+import type { Blog } from "../types";
 
 const BlogDetail = () => {
   const { id } = useParams<{ id: string }>();
